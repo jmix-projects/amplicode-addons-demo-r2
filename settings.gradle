@@ -1,0 +1,3 @@
+rootProject.name = 'amplicode-addons-demo-r2'
+
+include 'frontend'

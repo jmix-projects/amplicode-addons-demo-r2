@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaLiquibaseChangesConfig">
+    <exclude-change idName="authorities" tagName="dropTable" />
+    <exclude-change idName="users" tagName="dropTable" />
+    <exclude-change idName="fk_authorities_users" tagName="dropForeignKeyConstraint" />
+  </component>
+  <component name="JpaPluginProjectSettings">
+    <option name="lastSelectedLanguage" value="Java" />
+  </component>
+</project>

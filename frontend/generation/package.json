@@ -1,0 +1,6 @@
+{
+  "name": "amplicode-addons-demo-r2-generation",
+  "devDependencies": {
+    "@amplicode/codegen": "^0.1.0"
+  }
+}

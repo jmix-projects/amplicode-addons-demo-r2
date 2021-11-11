@@ -1,0 +1,125 @@
+# This file was automatically generated. Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type CustomerOrderDto {
+    amount: Int
+    id: Long
+    location: Point
+    salesperson: SalespersonDto
+}
+
+"Mutation root"
+type Mutation {
+    deleteOrder(id: Long!): Boolean!
+    deleteSalesperson(id: Long!): Boolean!
+    deleteTerritory(id: Long!): Boolean!
+    updateOrder(input: CustomerOrderDtoInput): CustomerOrderDto
+    updateSalesperson(input: SalespersonDtoInput): SalespersonDto
+    updateTerritory(input: TerritoryDtoInput): TerritoryDto
+}
+
+"Query root"
+type Query {
+    countOrders: Long!
+    countSalespeople: Long!
+    countTerritories: Long!
+    findOrder(id: Long!): CustomerOrderDto
+    findSalesperson(id: Long!): SalespersonDto
+    findTerritory(id: Long!): TerritoryDto
+    listOrders: [CustomerOrderDto]
+    listSalespeople: [SalespersonDto]
+    listTerritories: [TerritoryDto]
+}
+
+type SalespersonDto {
+    id: Long
+    location: Point
+    name: String
+    phone: String
+    territory: TerritoryDto
+}
+
+type TerritoryDto {
+    id: Long
+    name: String
+    polygon: Polygon
+}
+
+"BigDecimal"
+scalar BigDecimal
+
+"BigInteger"
+scalar BigInteger
+
+"Byte"
+scalar Byte
+
+"Char"
+scalar Char
+
+"Date"
+scalar Date
+
+"DateTime"
+scalar DateTime
+
+"LocalDate"
+scalar LocalDate
+
+"LocalDateTime"
+scalar LocalDateTime
+
+"LocalTime"
+scalar LocalTime
+
+"Long"
+scalar Long
+
+"OffsetDateTime"
+scalar OffsetDateTime
+
+"OffsetTime"
+scalar OffsetTime
+
+"Point"
+scalar Point
+
+"Polygon"
+scalar Polygon
+
+"Short"
+scalar Short
+
+"Time"
+scalar Time
+
+"UUID"
+scalar UUID
+
+"Void"
+scalar Void
+
+input CustomerOrderDtoInput {
+    amount: Int
+    id: Long
+    location: Point
+    salesperson: SalespersonDtoInput
+}
+
+input SalespersonDtoInput {
+    id: Long
+    location: Point
+    name: String
+    phone: String
+    territory: TerritoryDtoInput
+}
+
+input TerritoryDtoInput {
+    id: Long
+    name: String
+    polygon: Polygon
+}
