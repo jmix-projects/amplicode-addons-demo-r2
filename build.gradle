@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.5'
+    id 'org.springframework.boot' version '2.5.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -16,6 +16,12 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "com.amplicode.bom:amplicode-bom:0.1.0-SNAPSHOT"
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -26,9 +32,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 
-    implementation 'com.amplicode.maps:amplicode-maps-starter:0.1.0-SNAPSHOT'
+    implementation 'com.amplicode.maps:amplicode-maps-starter'
 
-    implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter:0.0.6'
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0'
     implementation 'org.modelmapper:modelmapper:2.4.4'
 }
