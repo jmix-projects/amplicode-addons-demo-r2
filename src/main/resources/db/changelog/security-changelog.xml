@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="1" author="Amplicode Addons">
+        <!-- Base Tables -->
+        <createTable tableName="users">
+            <column name="username" type="varchar(50)">
+                <constraints primaryKey="true" primaryKeyName="pk_users" nullable="false"/>
+            </column>
+            <column name="password" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN" defaultValue="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="authorities">
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+<!--        <addPrimaryKey constraintName="pk_authorities" tableName="authorities" columnNames="username,authority"/>-->
+        <addForeignKeyConstraint constraintName="fk_authorities_users" baseTableName="authorities"
+                                 baseColumnNames="username" referencedTableName="users"
+                                 referencedColumnNames="username"/>
+        <createIndex tableName="authorities" indexName="ix_auth_username">
+            <column name="username"/>
+            <column name="authority"/>
+        </createIndex>
+
+        <insert tableName="users" dbms="postgresql, hsqldb, mssql">
+            <column name="username" value="admin"/>
+            <column name="password" value="{noop}admin"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="users" dbms="oracle, mysql, mariadb">
+            <column name="username" value="admin"/>
+            <column name="password" value="{noop}admin"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ROLE_ADMIN"/>
+        </insert>
+        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ROLE_ADMIN"/>
+        </insert>
+
+        <insert tableName="users" dbms="postgresql, hsqldb, mssql">
+            <column name="username" value="user"/>
+            <column name="password" value="{noop}user"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="users" dbms="oracle, mysql, mariadb">
+            <column name="username" value="user"/>
+            <column name="password" value="{noop}user"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
+            <column name="username" value="user"/>
+            <column name="authority" value="ROLE_USER"/>
+        </insert>
+        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
+            <column name="username" value="user"/>
+            <column name="authority" value="ROLE_USER"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,6 +1,7 @@
 package com.amplicode.addonsdemo.service;
 
 import com.amplicode.addonsdemo.dto.SalespersonDto;
+import com.amplicode.addonsdemo.dto.TerritoryDto;
 import com.amplicode.addonsdemo.entity.Salesperson;
 import com.amplicode.addonsdemo.repository.SalespersonRepository;
 import io.leangen.graphql.annotations.GraphQLMutation;
@@ -78,9 +79,12 @@ public class SalespersonService {
 
     protected void validateLocationIsWithinTerritory(SalespersonDto input) {
         final Point location = input.getLocation();
-        final Polygon polygon = input.getTerritory().getPolygon();
-        if (location != null && polygon != null && !location.within(polygon)) {
-            throw new RuntimeException("Location should be within the specified territory");
+        final TerritoryDto territory = input.getTerritory();
+        if (territory != null) {
+            final Polygon polygon = territory.getPolygon();
+            if (location != null && polygon != null && !location.within(polygon)) {
+                throw new RuntimeException("Location should be within the specified territory");
+            }
         }
     }
 }

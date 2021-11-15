@@ -36,6 +36,7 @@ const LIST_TERRITORIES = gql`
     listTerritories {
       id
       name
+      polygon
     }
   }
 `;

@@ -160,14 +160,14 @@ const SalespersonList = observer(({onSelect}: EntityListScreenProps) => {
                     <Fields entity={e}/>
                 </Card>
             ))}
-            <GeoMap centerX={-100.909} centerY={37.2625} zoom={4}>
+            <GeoMap centerX={50.2004} centerY={53.2261} zoom={11}>
                 <TileLayer id='tileLayer' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
                 <VectorLayer id='salespersonsLayer' items={items} propertyName={'location'} clustering={true}/>
             </GeoMap>
         </div>
-)
-    ;
+    )
+        ;
 });
 
 const Fields = ({entity}: { entity: any }) => (

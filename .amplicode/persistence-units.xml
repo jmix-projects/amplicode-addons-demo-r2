@@ -2,7 +2,7 @@
 <project version="4">
   <component name="AmplicodePersistenceUnitConfig">
     <persistence-units>
-      <persistence-unit name="Default">
+      <persistence-unit name="Default" defaultIncludeChangeLogFile="src/main/resources/db/changelog.xml">
         <packages>
           <package value="com.amplicode.addonsdemo" />
         </packages>
