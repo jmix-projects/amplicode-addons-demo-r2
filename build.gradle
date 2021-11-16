@@ -13,6 +13,9 @@ repositories {
     maven {
         url 'https://nexus.amplicode.com/repository/public/'
     }
+    maven {
+        url 'https://nexus.jmix.io/repository/public' //for YARG
+    }
     mavenCentral()
 }
 
@@ -34,6 +37,7 @@ dependencies {
 
     implementation 'com.amplicode.maps:amplicode-maps-starter'
     implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter'
+    implementation 'com.amplicode.reports:amplicode-reports-starter'
 
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0'
     implementation 'org.modelmapper:modelmapper:2.4.4'

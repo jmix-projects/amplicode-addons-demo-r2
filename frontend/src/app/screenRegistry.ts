@@ -1,3 +1,5 @@
+import { ReportRunList } from "amplicode-reports";
+import { ReportList } from "amplicode-reports";
 import OrderList from "./order/OrderList";
 import SalespersonList from "./salesperson/SalespersonList";
 import TerritoryList from "./territory/TerritoryList";
@@ -35,6 +37,16 @@ export const screenRegistry: Record<string, ScreenInfo> = {
   "order-list": {
     component: OrderList,
     captionKey: "screen.OrderList"
+  },
+
+  ReportList: {
+    component: ReportList,
+    captionKey: "screen.ReportList"
+  },
+
+  ReportRunList: {
+    component: ReportRunList,
+    captionKey: "screen.ReportRunList"
   }
 };
 
