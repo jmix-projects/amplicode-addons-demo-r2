@@ -6,5 +6,6 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <include file="db/changelog/maps-changelog.xml"/>
     <include file="db/changelog/security-changelog.xml"/>
+    <include file="/com/amplicode/reports/liquibase/changelog.xml"/>
     <include file="db/changelog/persistent-parameters-changelog.xml"/>
 </databaseChangeLog>

@@ -1,10 +1,12 @@
+import { ReportRunList } from "amplicode-reports";
+import { ReportList } from "amplicode-reports";
 import { PersistentParameters } from "amplicode-persistentparameters";
+import PersistentParametersDemoComponent from "./persistent-parameter/PersistentParametersDemoComponent";
 import OrderList from "./order/OrderList";
 import SalespersonList from "./salesperson/SalespersonList";
 import TerritoryList from "./territory/TerritoryList";
 import { Home } from "./home/Home";
 import { ReactComponent } from "@amplicode/react-core";
-import PersistentParametersDemoComponent from "./persistent-parameter/PersistentParametersDemoComponent";
 
 export interface ScreenInfo {
   /**
@@ -37,6 +39,16 @@ export const screenRegistry: Record<string, ScreenInfo> = {
   "order-list": {
     component: OrderList,
     captionKey: "screen.OrderList"
+  },
+
+  ReportList: {
+    component: ReportList,
+    captionKey: "screen.ReportList"
+  },
+
+  ReportRunList: {
+    component: ReportRunList,
+    captionKey: "screen.ReportRunList"
   },
 
   PersistentParameters: {
