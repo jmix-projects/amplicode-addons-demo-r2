@@ -17,6 +17,7 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.9",
+    "amplicode-audit": "^0.1.0-snapshot",
     "amplicode-maps": "^0.1.0-snapshot",
     "amplicode-reports": "^0.1.0-snapshot",
     "antd": "^4.16.12",

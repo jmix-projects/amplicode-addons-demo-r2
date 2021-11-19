@@ -36,3 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 /frontend/node_modules/
+.DS_Store
+/frontend/.DS_Store

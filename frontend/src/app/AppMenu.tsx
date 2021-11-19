@@ -71,6 +71,9 @@ export const AppMenu = observer(() => {
       <Menu.Item title={getCaption("ReportRunList")} key="ReportRunList">
         {getCaption("ReportRunList")}
       </Menu.Item>
+      <Menu.Item title={getCaption("entity-log")} key="entity-log">
+          {getCaption("entity-log")}
+      </Menu.Item>
     </Menu>
   );
 });

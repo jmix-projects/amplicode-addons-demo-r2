@@ -27,6 +27,10 @@
   "screen.SalespersonDetails": "Salesperson Details",
   "screen.OrderList": "Order List",
   "screen.OrderDetails": "Order Details",
+
+  "addons.amplicode-audit": "amplicode-audit",
+  "screen.EntityLog": "Entity Log",
+
   "addons.amplicode-reports": "Amplicode-reports",
   "screen.ReportList": "Report List",
   "screen.ReportRunList": "Report Run List",

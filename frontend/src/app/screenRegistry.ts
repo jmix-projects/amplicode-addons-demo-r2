@@ -1,3 +1,4 @@
+import { EntityLog } from "amplicode-audit";
 import { ReportRunList } from "amplicode-reports";
 import { ReportList } from "amplicode-reports";
 import OrderList from "./order/OrderList";
@@ -47,6 +48,11 @@ export const screenRegistry: Record<string, ScreenInfo> = {
   ReportRunList: {
     component: ReportRunList,
     captionKey: "screen.ReportRunList"
+  },
+
+  "entity-log": {
+    component: EntityLog,
+    captionKey: "screen.EntityLog"
   }
 };
 
