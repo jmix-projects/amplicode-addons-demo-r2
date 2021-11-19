@@ -1,8 +1,10 @@
+import { PersistentParameters } from "amplicode-persistentparameters";
 import OrderList from "./order/OrderList";
 import SalespersonList from "./salesperson/SalespersonList";
 import TerritoryList from "./territory/TerritoryList";
 import { Home } from "./home/Home";
 import { ReactComponent } from "@amplicode/react-core";
+import PersistentParametersDemoComponent from "./persistent-parameter/PersistentParametersDemoComponent";
 
 export interface ScreenInfo {
   /**
@@ -35,6 +37,16 @@ export const screenRegistry: Record<string, ScreenInfo> = {
   "order-list": {
     component: OrderList,
     captionKey: "screen.OrderList"
+  },
+
+  PersistentParameters: {
+    component: PersistentParameters,
+    captionKey: "screen.PersistentParameters"
+  },
+
+  "persistent-parameters-demo-component": {
+    component: PersistentParametersDemoComponent,
+    captionKey: "screen.PersistentParametersDemoComponent"
   }
 };
 

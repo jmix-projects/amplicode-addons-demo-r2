@@ -26,5 +26,7 @@
   "screen.SalespersonList": "Salesperson List",
   "screen.SalespersonDetails": "Salesperson Details",
   "screen.OrderList": "Order List",
-  "screen.OrderDetails": "Order Details"
+  "screen.OrderDetails": "Order Details",
+  "screen.PersistentParameters": "Persistent Parameters",
+  "screen.PersistentParametersDemoComponent": "Persistent Parameters Demo Screen"
 }

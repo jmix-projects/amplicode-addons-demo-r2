@@ -30,6 +30,11 @@ type Query {
     findOrder(id: Long!): CustomerOrderDto
     findSalesperson(id: Long!): SalespersonDto
     findTerritory(id: Long!): TerritoryDto
+    getDateTimeParameter: String
+    getEntityParameter: Long!
+    getEnumParameter: String
+    getNumberParameter: Int!
+    getStringParameter: String
     listOrders: [CustomerOrderDto]
     listSalespeople: [SalespersonDto]
     listTerritories: [TerritoryDto]

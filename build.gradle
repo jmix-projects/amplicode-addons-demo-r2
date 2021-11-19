@@ -33,6 +33,7 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 
     implementation 'com.amplicode.maps:amplicode-maps-starter'
+    implementation 'com.amplicode.persistentparameters:amplicode-persistentparameters-starter'
     implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter'
 
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0'
