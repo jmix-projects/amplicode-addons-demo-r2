@@ -65,12 +65,12 @@ export const AppMenu = observer(() => {
       <Menu.Item title={getCaption("order-list")} key="order-list">
         {getCaption("order-list")}
       </Menu.Item>
-        <Menu.Item title={getCaption("ReportList")} key="ReportList">
-            {getCaption("ReportList")}
-        </Menu.Item>
-        <Menu.Item title={getCaption("ReportRunList")} key="ReportRunList">
-            {getCaption("ReportRunList")}
-        </Menu.Item>
+      <Menu.Item title={getCaption("ReportList")} key="ReportList">
+        {getCaption("ReportList")}
+      </Menu.Item>
+      <Menu.Item title={getCaption("ReportRunList")} key="ReportRunList">
+        {getCaption("ReportRunList")}
+      </Menu.Item>
         <Menu.Item
             title={getCaption("PersistentParameters")}
             key="PersistentParameters"

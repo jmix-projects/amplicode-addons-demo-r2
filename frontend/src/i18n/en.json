@@ -27,9 +27,6 @@
   "screen.SalespersonDetails": "Salesperson Details",
   "screen.OrderList": "Order List",
   "screen.OrderDetails": "Order Details",
-  "screen.PersistentParameters": "Persistent Parameters",
-  "screen.PersistentParametersDemoComponent": "Persistent Parameters Demo Screen"
-  "screen.OrderDetails": "Order Details",
   "addons.amplicode-reports": "Amplicode-reports",
   "screen.ReportList": "Report List",
   "screen.ReportRunList": "Report Run List",
