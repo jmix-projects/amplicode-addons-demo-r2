@@ -1,3 +1,4 @@
+import { UserActionList } from "amplicode-audit";
 import { EntityLog } from "amplicode-audit";
 import { ReportRunList } from "amplicode-reports";
 import { ReportList } from "amplicode-reports";
@@ -50,9 +51,14 @@ export const screenRegistry: Record<string, ScreenInfo> = {
     captionKey: "screen.ReportRunList"
   },
 
-  "entity-log": {
+  EntityLog: {
     component: EntityLog,
     captionKey: "screen.EntityLog"
+  },
+
+  UserActionList: {
+    component: UserActionList,
+    captionKey: "screen.UserActionList"
   }
 };
 

@@ -27,10 +27,9 @@
   "screen.SalespersonDetails": "Salesperson Details",
   "screen.OrderList": "Order List",
   "screen.OrderDetails": "Order Details",
-
-  "addons.amplicode-audit": "amplicode-audit",
   "screen.EntityLog": "Entity Log",
-
+  "screen.UserActionList": "User Action List",
+  "addons.amplicode-audit": "amplicode-audit",
   "addons.amplicode-reports": "Amplicode-reports",
   "screen.ReportList": "Report List",
   "screen.ReportRunList": "Report Run List",
@@ -146,5 +145,13 @@
   "addons.amplicode-reports.reportWizard.validation.reportName": "Please specify a report name",
   "addons.amplicode-reports.reportWizard.validation.entityProperties": "Please select entity properties to include them in the report",
   "addons.amplicode-reports.reportWizard.validation.graphQLQueryName": "Please specify GraphQL query name",
-  "addons.amplicode-reports.reportWizard.validation.graphQLIdProperty": "Please specify Id property name"
+  "addons.amplicode-reports.reportWizard.validation.graphQLIdProperty": "Please specify Id property name",
+  "addons.amplicode-audit.userActionList": "User Actions",
+  "addons.amplicode-audit.useractions.aggregationParameters": "Aggregation Parameters",
+  "addons.amplicode-audit.useractions.inputComponentID": "Please input the Component ID",
+  "addons.amplicode-audit.useractions.selectComponentType": "Please select the Component Type",
+  "addons.amplicode-audit.useractions.inputStartDateTime": "Please input the aggregation interval Start Date and Time",
+  "addons.amplicode-audit.useractions.inputEndDateTime": "Please input the aggregation interval End Date and Time",
+  "addons.amplicode-audit.useractions.aggregateEvents": "Aggregate Events",
+  "addons.amplicode-audit.useractions.totalEventCount": "Total Event Count: "
 }
