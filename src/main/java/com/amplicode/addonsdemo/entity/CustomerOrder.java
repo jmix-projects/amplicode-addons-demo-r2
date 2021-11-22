@@ -1,6 +1,7 @@
 package com.amplicode.addonsdemo.entity;
 
 import com.amplicode.maps.jpa.converter.wkt.PointWKTConverter;
+import org.hibernate.envers.Audited;
 import org.locationtech.jts.geom.Point;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Audited
 @Entity
 @Table(name = "customer_order")
 public class CustomerOrder {

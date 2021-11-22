@@ -1,6 +1,7 @@
 package com.amplicode.addonsdemo.entity;
 
 import com.amplicode.maps.jpa.converter.wkt.PolygonWKTConverter;
+import org.hibernate.envers.Audited;
 import org.locationtech.jts.geom.Polygon;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Audited
 @Entity
 @Table(name = "territory")
 public class Territory {
