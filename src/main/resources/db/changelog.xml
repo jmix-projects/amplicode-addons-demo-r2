@@ -8,5 +8,6 @@
     <include file="db/changelog/security-changelog.xml"/>
     <include file="/com/amplicode/reports/liquibase/changelog.xml"/>
     <include file="/com/amplicode/audit/liquibase/changelog.xml"/>
+    <include file="com/amplicode/persistentparameters/liquibase/changelog.xml"/>
     <include file="db/changelog/persistent-parameters-changelog.xml"/>
 </databaseChangeLog>
