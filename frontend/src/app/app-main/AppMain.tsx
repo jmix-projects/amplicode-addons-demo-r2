@@ -17,7 +17,7 @@ export const AppMain = observer(() => {
       </Layout.Header>
       <Layout className="layout-container">
         <Layout.Sider
-          width={200}
+          width={250}
           breakpoint="sm"
           collapsedWidth={0}
           className="layout-sider"

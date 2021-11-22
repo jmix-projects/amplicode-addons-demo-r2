@@ -29,6 +29,8 @@
   "screen.OrderDetails": "Order Details",
   "screen.EntityLog": "Entity Log",
   "screen.UserActionList": "User Action List",
+  "screen.PersistentParameters": "Persistent Parameters",
+  "screen.PersistentParametersDemoComponent": "Persistent Parameters Demo Screen",
   "addons.amplicode-audit": "amplicode-audit",
   "addons.amplicode-reports": "Amplicode-reports",
   "screen.ReportList": "Report List",

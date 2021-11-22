@@ -71,6 +71,16 @@ export const AppMenu = observer(() => {
       <Menu.Item title={getCaption("ReportRunList")} key="ReportRunList">
         {getCaption("ReportRunList")}
       </Menu.Item>
+        <Menu.Item
+            title={getCaption("PersistentParameters")}
+            key="PersistentParameters"
+        >
+            {getCaption("PersistentParameters")}
+        </Menu.Item>
+        <Menu.Item title={getCaption("persistent-parameters-demo-component")}
+                   key="persistent-parameters-demo-component">
+            {getCaption("persistent-parameters-demo-component")}
+        </Menu.Item>
         <Menu.Item title={getCaption("EntityLog")} key="EntityLog">
             {getCaption("EntityLog")}
         </Menu.Item>

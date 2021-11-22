@@ -35,8 +35,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 
-    implementation 'com.amplicode.maps:amplicode-maps-starter'
     implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter'
+
+    implementation 'com.amplicode.maps:amplicode-maps-starter'
+    implementation 'com.amplicode.persistentparameters:amplicode-persistentparameters-starter'
     implementation 'com.amplicode.reports:amplicode-reports-starter'
     implementation 'com.amplicode.audit:amplicode-audit-starter'
 
