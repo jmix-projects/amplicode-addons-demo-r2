@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="Amplicode Addons">
+        <createTable tableName="AUD_TERRITORY">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REV" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REV_TYPE" type="SMALLINT"/>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="POLYGON" type="VARCHAR(4000)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="AUD_TERRITORY" columnNames="ID, REV"
+                       constraintName="PK_AUD_TERRITORY"/>
+
+        <addForeignKeyConstraint baseTableName="AUD_TERRITORY"
+                                 baseColumnNames="REV"
+                                 constraintName="FK_AUD_TERRITORY_ON_REVISION_INFO"
+                                 referencedTableName="REVISION_INFO"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+    <changeSet id="2" author="Amplicode Addons">
+        <createTable tableName="AUD_CUSTOMER_ORDER">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REV" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REV_TYPE" type="SMALLINT"/>
+            <column name="AMOUNT" type="INTEGER"/>
+            <column name="LOCATION" type="VARCHAR(255)"/>
+            <column name="SALES_PERSON_ID" type="BIGINT"/>
+        </createTable>
+
+        <addPrimaryKey tableName="AUD_CUSTOMER_ORDER" columnNames="ID, REV"
+                       constraintName="PK_AUD_CUSTOMER_ORDER"/>
+
+        <addForeignKeyConstraint baseTableName="AUD_CUSTOMER_ORDER"
+                                 baseColumnNames="REV"
+                                 constraintName="FK_AUD_CUSTOMER_ORDER_ON_REVISION_INFO"
+                                 referencedTableName="REVISION_INFO"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+    <changeSet id="3" author="Amplicode Addons">
+        <createTable tableName="AUD_SALESPERSON">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REV" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REV_TYPE" type="SMALLINT"/>
+            <column name="LOCATION" type="VARCHAR(255)"/>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="PHONE" type="VARCHAR(255)"/>
+            <column name="TERRITORY_ID" type="BIGINT"/>
+        </createTable>
+
+        <addPrimaryKey tableName="AUD_SALESPERSON" columnNames="ID, REV"
+                       constraintName="PK_AUD_SALESPERSON"/>
+
+        <addForeignKeyConstraint baseTableName="AUD_SALESPERSON"
+                                 baseColumnNames="REV"
+                                 constraintName="FK_AUD_SALESPERSON_ON_REVISION_INFO"
+                                 referencedTableName="REVISION_INFO"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+</databaseChangeLog>
