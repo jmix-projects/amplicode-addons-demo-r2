@@ -38,11 +38,15 @@ dependencies {
 
     implementation 'com.amplicode.maps:amplicode-maps-starter'
     implementation 'com.amplicode.persistentparameters:amplicode-persistentparameters-starter'
+    implementation 'com.amplicode.persistentmessages:amplicode-persistentmessages-starter'
     implementation 'com.amplicode.reports:amplicode-reports-starter'
     implementation 'com.amplicode.audit:amplicode-audit-starter'
 
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0'
     implementation 'org.modelmapper:modelmapper:2.4.4'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {

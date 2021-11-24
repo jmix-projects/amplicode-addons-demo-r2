@@ -4,11 +4,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <include file="com/amplicode/reports/liquibase/changelog.xml"/>
+    <include file="com/amplicode/audit/liquibase/changelog.xml"/>
+    <include file="com/amplicode/persistentparameters/liquibase/changelog.xml"/>
+    <include file="com/amplicode/persistentmessages/liquibase/changelog.xml"/>
+
     <include file="db/changelog/maps-changelog.xml"/>
     <include file="db/changelog/security-changelog.xml"/>
-    <include file="/com/amplicode/reports/liquibase/changelog.xml"/>
-    <include file="/com/amplicode/audit/liquibase/changelog.xml"/>
-    <include file="com/amplicode/persistentparameters/liquibase/changelog.xml"/>
     <include file="db/changelog/persistent-parameters-changelog.xml"/>
     <include file="db/changelog/audit-entitylog-changelog.xml"/>
 </databaseChangeLog>
