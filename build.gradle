@@ -9,7 +9,6 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-    mavenLocal()
     maven {
         url 'https://nexus.amplicode.com/repository/public/'
     }
