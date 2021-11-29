@@ -21,6 +21,7 @@
     "amplicode-maps": "^0.1.0-snapshot",
     "amplicode-persistentparameters": "^0.1.0-snapshot",
     "amplicode-reports": "^0.1.0-snapshot",
+    "amplicode-mail": "^0.1.0-snapshot",
     "antd": "^4.16.12",
     "axios": "^0.21.1",
     "graphql": "^15.5.1",

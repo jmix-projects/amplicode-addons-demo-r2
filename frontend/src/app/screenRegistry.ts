@@ -1,7 +1,6 @@
-import {UserActionList} from "amplicode-audit";
-import {EntityLog} from "amplicode-audit";
-import {ReportRunList} from "amplicode-reports";
-import {ReportList} from "amplicode-reports";
+import {EmailHistory} from "amplicode-mail";
+import {EntityLog, UserActionList} from "amplicode-audit";
+import {ReportList, ReportRunList} from "amplicode-reports";
 import {PersistentParameters} from "amplicode-persistentparameters";
 import PersistentParametersDemoComponent from "./persistent-parameter/PersistentParametersDemoComponent";
 import OrderList from "./order/OrderList";
@@ -9,6 +8,7 @@ import SalespersonList from "./salesperson/SalespersonList";
 import TerritoryList from "./territory/TerritoryList";
 import {Home} from "./home/Home";
 import {ReactComponent} from "@amplicode/react-core";
+import SendEmailPage from "./email/SendEmailPage";
 
 export interface ScreenInfo {
     /**
@@ -71,6 +71,16 @@ export const screenRegistry: Record<string, ScreenInfo> = {
     UserActionList: {
         component: UserActionList,
         captionKey: "screen.UserActionList"
+    },
+
+    SendEmailPage: {
+        component: SendEmailPage,
+        captionKey: "screen.SendEmailPage"
+    },
+
+    EmailHistory: {
+        component: EmailHistory,
+        captionKey: "screen.EmailHistory"
     }
 };
 

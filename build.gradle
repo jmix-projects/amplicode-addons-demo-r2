@@ -41,6 +41,9 @@ dependencies {
     implementation 'com.amplicode.persistentmessages:amplicode-persistentmessages-starter'
     implementation 'com.amplicode.reports:amplicode-reports-starter'
     implementation 'com.amplicode.audit:amplicode-audit-starter'
+    implementation 'com.amplicode.mail:amplicode-mail-starter'
+
+    implementation 'org.springframework.boot:spring-boot-starter-quartz'
 
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0'
     implementation 'org.modelmapper:modelmapper:2.4.4'

@@ -17,6 +17,7 @@ type Mutation {
     deleteOrder(id: Long!): Boolean!
     deleteSalesperson(id: Long!): Boolean!
     deleteTerritory(id: Long!): Boolean!
+    sendEmailAsync(input: SendEmailDtoInput): Boolean!
     updateOrder(input: CustomerOrderDtoInput): CustomerOrderDto
     updateSalesperson(input: SalespersonDtoInput): SalespersonDto
     updateTerritory(input: TerritoryDtoInput): TerritoryDto
@@ -121,6 +122,10 @@ input SalespersonDtoInput {
     name: String
     phone: String
     territory: TerritoryDtoInput
+}
+
+input SendEmailDtoInput {
+    address: String
 }
 
 input TerritoryDtoInput {
