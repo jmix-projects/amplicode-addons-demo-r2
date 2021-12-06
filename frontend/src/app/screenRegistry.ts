@@ -1,3 +1,4 @@
+import {PersistentMessageList} from "amplicode-persistentmessages";
 import {EmailHistory} from "amplicode-mail";
 import {EntityLog, UserActionList} from "amplicode-audit";
 import {ReportList, ReportRunList} from "amplicode-reports";
@@ -81,6 +82,11 @@ export const screenRegistry: Record<string, ScreenInfo> = {
     EmailHistory: {
         component: EmailHistory,
         captionKey: "screen.EmailHistory"
+    },
+
+    PersistentMessageList: {
+        component: PersistentMessageList,
+        captionKey: "screen.PersistentMessageList"
     }
 };
 

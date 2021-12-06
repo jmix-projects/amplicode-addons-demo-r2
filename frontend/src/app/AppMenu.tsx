@@ -93,6 +93,11 @@ export const AppMenu = observer(() => {
             <Menu.Item title={getCaption("EmailHistory")} key="EmailHistory">
                 {getCaption("EmailHistory")}
             </Menu.Item>
+            <Menu.Item
+                title={getCaption("PersistentMessageList")}
+                key="PersistentMessageList">
+                {getCaption("PersistentMessageList")}
+            </Menu.Item>
         </Menu>
     );
 });

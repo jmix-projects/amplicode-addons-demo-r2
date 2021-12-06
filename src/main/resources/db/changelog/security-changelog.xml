@@ -117,4 +117,15 @@
         </insert>
     </changeSet>
 
+    <changeSet id="5" author="Amplicode Addons">
+        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ROLE_PERSISTENT_MESSAGES_ADMIN"/>
+        </insert>
+        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ROLE_PERSISTENT_MESSAGES_ADMIN"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

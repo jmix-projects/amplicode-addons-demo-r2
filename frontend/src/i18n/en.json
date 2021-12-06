@@ -195,5 +195,19 @@
   "addons.amplicode-mail.sendingStatus.queue": "Queue",
   "addons.amplicode-mail.sendingStatus.sending": "Sending",
   "addons.amplicode-mail.sendingStatus.sent": "Sent",
-  "addons.amplicode-mail.sendingStatus.not_sent": "Not sent"
+  "addons.amplicode-mail.sendingStatus.not_sent": "Not sent",
+  "addons.amplicode-persistentmessages": "Amplicode-persistentmessages",
+  "screen.PersistentMessageList": "Persistent Message List",
+  "addons.amplicode-persistentmessages.screen.PersistentMessageList": "Persistent Message List",
+  "addons.amplicode-persistentmessages.screen.PersistentMessageDetails": "Persistent Message Details",
+  "addons.amplicode-persistentmessages.filter.code": "Code",
+  "addons.amplicode-persistentmessages.filter.message": "Message",
+  "addons.amplicode-persistentmessages.filter.search": "Search",
+  "addons.amplicode-persistentmessages.persistentMessage.code": "Code",
+  "addons.amplicode-persistentmessages.table.messageCode": "Message code",
+  "addons.amplicode-persistentmessages.table.localizedMessages": "Messages",
+  "addons.amplicode-persistentmessages.table.actions": "Actions",
+  "addons.amplicode-persistentmessages.import": "Import",
+  "addons.amplicode-persistentmessages.import.success": "{numOfImportedMessages} messages imported successfully.",
+  "addons.amplicode-persistentmessages.import.failure": "Messages import failed"
 }
