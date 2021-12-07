@@ -8,7 +8,7 @@ task installGenerators(type: NpmTask) {
 }
 
 task listGenerators(type: NpxTask, dependsOn: installGenerators) {
-    command = "@amplicode/codegen"
+    command = "amplicodegen"
     workingDir = file("generation")
     args = ["list", "-s", "generators.json"]
 }

@@ -1,0 +1,2 @@
+import "amplicode-reports";
+export {};

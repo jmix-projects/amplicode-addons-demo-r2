@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./app/screenRegistry";
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
 import {
@@ -13,16 +14,23 @@ import "antd/dist/antd.min.css";
 import axios from "axios";
 import { HashRouter } from "react-router-dom";
 import { onError } from "@apollo/client/link/error";
-import { IntlProvider } from "react-intl";
-import { SecurityStore } from "./app/security/security";
-import en from "./i18n/en.json";
-import { GRAPHQL_URI } from "./config";
-import { ScreenContext, Screens } from "@amplicode/react-core";
+import { createIntl, IntlProvider } from "react-intl";
+import { GRAPHQL_URI, REQUEST_SAME_ORIGIN } from "./config";
+import {
+  HotkeyContext,
+  HotkeyStore,
+  ScreenContext,
+  Screens,
+  localesStore
+} from "@amplicode/react-core";
 import { DevSupport } from "@react-buddy/ide-toolbox";
 import { ComponentPreviews } from "./dev/previews";
 import { useInitial } from "./dev/hook";
-
-export const securityStore = new SecurityStore();
+import { defaultHotkeyConfigs } from "./hotkeyConfigs";
+import { securityStore } from "./security-store";
+import { notification } from "antd";
+import "./i18n/i18nInit";
+import "./addons";
 
 axios.interceptors.response.use(response => {
   if (response.status === 401) {
@@ -30,13 +38,46 @@ axios.interceptors.response.use(response => {
   }
   return response;
 });
+axios.defaults.withCredentials = !REQUEST_SAME_ORIGIN;
 
 const httpLink = createHttpLink({
   uri: GRAPHQL_URI,
-  credentials: "same-origin"
+  credentials: REQUEST_SAME_ORIGIN ? "same-origin" : "include"
 });
 
-const logoutLink = onError(({ networkError }) => {
+const errorLink = onError(({ networkError, graphQLErrors }) => {
+  // TODO code below assumes that GraphQL server returns
+  // {"errors":[{"extensions":{"classification":"UNAUTHORIZED"}}], ...}
+  // for not authenticated user
+  // and
+  // {"errors":[{"extensions":{"classification":"FORBIDDEN"}}], ...}
+  // if user has not enough permissions for query.
+  // If the server handles errors differently, or has a different response structure, code below should be modified.
+
+  if (graphQLErrors != null && graphQLErrors.length > 0) {
+    if (
+      graphQLErrors.some(
+        err => err.extensions?.classification === "UNAUTHORIZED"
+      )
+    ) {
+      securityStore.logout();
+      return;
+    }
+
+    if (
+      graphQLErrors.some(err => err.extensions?.classification === "FORBIDDEN")
+    ) {
+      const intl = createIntl({
+        locale: "en",
+        messages: localesStore.messagesMapping["en"]
+      });
+      notification.error({
+        message: intl.formatMessage({ id: "common.notAllowed" })
+      });
+      return;
+    }
+  }
+
   if (networkError == null || !("statusCode" in networkError)) {
     return;
   }
@@ -46,7 +87,7 @@ const logoutLink = onError(({ networkError }) => {
 });
 
 const client = new ApolloClient({
-  link: logoutLink.concat(httpLink),
+  link: errorLink.concat(httpLink),
   cache: new InMemoryCache({
     addTypename: false
   }),
@@ -63,18 +104,22 @@ const client = new ApolloClient({
 // To customize screens behavior, pass a config object to Screens constructor
 const screens = new Screens();
 
+const hotkeys = new HotkeyStore(defaultHotkeyConfigs);
+
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <IntlProvider locale="en" messages={en}>
+      <IntlProvider locale="en" messages={localesStore.messagesMapping["en"]}>
         <ScreenContext.Provider value={screens}>
           <HashRouter>
-            <DevSupport
-              ComponentPreviews={<ComponentPreviews />}
-              useInitialHook={useInitial}
-            >
-              <App />
-            </DevSupport>
+            <HotkeyContext.Provider value={hotkeys}>
+              <DevSupport
+                ComponentPreviews={<ComponentPreviews />}
+                useInitialHook={useInitial}
+              >
+                <App />
+              </DevSupport>
+            </HotkeyContext.Provider>
           </HashRouter>
         </ScreenContext.Provider>
       </IntlProvider>
