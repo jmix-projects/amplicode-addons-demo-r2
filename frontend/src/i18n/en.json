@@ -33,5 +33,6 @@
   "hotkeys.browser.applyFilter": "Apply filter",
   "hotkeys.editor.saveEntity": "Save entity",
   "hotkeys.screen.nextTab": "Switch to next tab",
-  "hotkeys.screen.previousTab": "Switch to previous tab"
+  "hotkeys.screen.previousTab": "Switch to previous tab",
+  "screen.SendEmailPage": "Send Email"
 }
