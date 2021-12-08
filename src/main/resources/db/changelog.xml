@@ -13,7 +13,6 @@
     <include file="com/amplicode/emailtemplates/liquibase/changelog.xml"/>
 
     <include file="db/changelog/maps-changelog.xml"/>
-    <include file="db/changelog/security-changelog.xml"/>
     <include file="db/changelog/persistent-parameters-changelog.xml"/>
     <include file="db/changelog/audit-entitylog-changelog.xml"/>
 </databaseChangeLog>

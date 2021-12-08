@@ -1,5 +1,8 @@
 package com.amplicode.addonsdemo.config;
 
+import com.amplicode.addonsdemo.AmplicodeAddonsDemoProperties;
+import com.amplicode.emailtemplates.security.EmailTemplatesAuthorities;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,22 +12,44 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
+
+import static com.amplicode.email.security.EmailAuthorities.EMAIL_ADMIN;
+import static com.amplicode.emailtemplates.security.EmailTemplatesAuthorities.EMAIL_TEMPLATES_ADMIN;
+import static com.amplicode.persistentmessages.security.PersistentMessagesAuthorities.PERSISTENT_MESSAGES_ADMIN;
+import static com.amplicode.persistentparameters.security.PersistentParametersAuthorities.PERSISTENT_PARAMETERS_ADMIN;
+import static com.amplicode.reports.security.ReportAuthorities.REPORT_ADMIN;
+import static com.amplicode.reports.security.ReportAuthorities.REPORT_EXECUTOR;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+    public static final String NOOP_PREFIX = "{noop}";
+
     @Autowired
-    private DataSource dataSource;
+    private AmplicodeAddonsDemoProperties properties;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
+        auth.inMemoryAuthentication()
+                .withUser(User.withUsername(properties.getAdmin().getUsername())
+                        .password(getPassword(properties.getAdmin().getPassword()))
+                        .authorities("ROLE_ADMIN", REPORT_ADMIN,
+                                PERSISTENT_PARAMETERS_ADMIN,
+                                EMAIL_ADMIN, PERSISTENT_MESSAGES_ADMIN, EMAIL_TEMPLATES_ADMIN).build())
+                .withUser(User.withUsername(properties.getUser().getUsername())
+                        .password(getPassword(properties.getUser().getPassword()))
+                        .authorities("ROLE_USER", REPORT_EXECUTOR)
+                        .build());
+    }
+
+    private String getPassword(String initialPassword) {
+        return StringUtils.startsWith(initialPassword, NOOP_PREFIX) ? initialPassword : NOOP_PREFIX + initialPassword;
     }
 
     @Override
