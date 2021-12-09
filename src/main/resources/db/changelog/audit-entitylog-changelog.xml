@@ -39,7 +39,7 @@
             <column name="REV_TYPE" type="SMALLINT"/>
             <column name="AMOUNT" type="INTEGER"/>
             <column name="LOCATION" type="VARCHAR(255)"/>
-            <column name="SALES_PERSON_ID" type="BIGINT"/>
+            <column name="SALESPERSON_ID" type="BIGINT"/>
         </createTable>
 
         <addPrimaryKey tableName="AUD_CUSTOMER_ORDER" columnNames="ID, REV"
