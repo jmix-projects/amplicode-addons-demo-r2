@@ -11,6 +11,7 @@
     <include file="com/amplicode/persistentmessages/liquibase/changelog.xml"/>
     <include file="com/amplicode/email/liquibase/changelog.xml"/>
     <include file="com/amplicode/emailtemplates/liquibase/changelog.xml"/>
+    <include file="com/amplicode/dataimport/liquibase/changelog.xml"/>
 
     <include file="db/changelog/maps-changelog.xml"/>
     <include file="db/changelog/persistent-parameters-changelog.xml"/>

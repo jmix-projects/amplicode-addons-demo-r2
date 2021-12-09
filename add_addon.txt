@@ -4,4 +4,5 @@ amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-persis
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-emailtemplates
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-mail
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-maps
+amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-dataimport
 

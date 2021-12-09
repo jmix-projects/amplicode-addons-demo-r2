@@ -17,6 +17,7 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.9",
+    "amplicode-dataimport": "^0.1.1-snapshot.2",
     "amplicode-emailtemplates": "^0.1.1-snapshot.2",
     "amplicode-mail": "^0.1.1-snapshot.2",
     "amplicode-maps": "^0.1.1-snapshot.1",
