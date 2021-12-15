@@ -5,6 +5,43 @@ schema {
     mutation: Mutation
 }
 
+type AllowedRevisionFiltersDto {
+    entitiesFullNames: [String]!
+    revisionTypes: [RevisionTypeDto]!
+    usernames: [String]!
+}
+
+type AuditPolicyDto {
+    audited: Boolean!
+    entityFullName: String!
+}
+
+type BandDto {
+    dataSetType: DataSetType
+    id: UUID
+    name: String
+    position: Int!
+    query: String
+}
+
+type ConfigNodeDto {
+    children: [ConfigNodeDto]
+    groupRemainder: [String]
+    name: String
+    parent: ConfigNodeDto
+    value: String
+}
+
+type ConfigOutputDto {
+    defaultValue: String
+    name: String
+    options: [String]
+    type: String
+    updateTs: String
+    updatedBy: String
+    value: String
+}
+
 type CustomerOrderDto {
     amount: Int
     id: Long
@@ -12,22 +49,97 @@ type CustomerOrderDto {
     salesperson: SalespersonDto
 }
 
+type EntityChangesDto {
+    earlierRevisionValues: Map
+    entityFullName: String!
+    entityId: String!
+    revisionId: Int!
+    targetRevisionType: RevisionTypeDto!
+    targetRevisionValues: Map
+}
+
+type EntityClassDto {
+    fullClassName: String
+    packageName: String
+    simpleClassName: String
+    simpleProperties: [String]
+}
+
+type EntityRevisionDto {
+    entityFullName: String!
+    entityId: String!
+    revisionId: Int!
+    revisionType: RevisionTypeDto!
+    username: String!
+    when: String!
+}
+
+type InputParameterDto {
+    alias: String
+    entityClassName: String
+    graphQLIdProperty: String
+    graphQLQuery: String
+    id: UUID
+    name: String
+    position: Int!
+    required: Boolean!
+    type: ParameterType
+}
+
+type Map
+
+type MessageModel {
+    code: String
+    values: Map
+}
+
 "Mutation root"
 type Mutation {
+    create_ReportFromWizard(input: ReportWizardDataDtoInput): ReportDto
     deleteOrder(id: Long!): Boolean!
+    deletePersistentMessage(code: String): Boolean!
     deleteSalesperson(id: Long!): Boolean!
     deleteTerritory(id: Long!): Boolean!
+    delete_Report(id: UUID): Boolean!
+    modifyAuditPolicies(policiesNewStates: AuditPolicyDtoInput): [String]
+    registerUserAction(input: UserActionInputDtoInput): String
+    resendMessage(input: ResendMessageDtoInput): Boolean!
     sendEmailAsync(input: SendEmailDtoInput): Boolean!
     updateOrder(input: CustomerOrderDtoInput): CustomerOrderDto
+    updatePersistentMessage(input: MessageModelInput): MessageModel
     updateSalesperson(input: SalespersonDtoInput): SalespersonDto
     updateTerritory(input: TerritoryDtoInput): TerritoryDto
+    update_Config(dto: ConfigInputDtoInput): ConfigOutputDto
+    update_Report(input: ReportInputDtoInput): ReportDto
+}
+
+type PieChartDescriptionDto {
+    bandName: String
+    id: UUID
+    titleField: String
+    valueField: String
+}
+
+type PivotTableDescriptionDto {
+    aggregationMode: AggregationMode
+    aggregationProperties: String
+    bandName: String
+    columnsProperties: String
+    id: UUID
+    rowsProperties: String
 }
 
 "Query root"
 type Query {
+    allowedRevisionFilters: AllowedRevisionFiltersDto
+    auditPolicyList: [AuditPolicyDto]
+    availableLocales: [String]
     countOrders: Long!
     countSalespeople: Long!
     countTerritories: Long!
+    entityRevisionChanges(changesFilter: EntityRevisionFilterDtoInput): EntityChangesDto
+    entityRevisionInfoList(revisionFilter: RevisionFilterDtoInput): [EntityRevisionDto]
+    entitySnapshot(snapshotFilter: EntityRevisionFilterDtoInput): String
     findOrder(id: Long!): CustomerOrderDto
     findSalesperson(id: Long!): SalespersonDto
     findTerritory(id: Long!): TerritoryDto
@@ -39,6 +151,57 @@ type Query {
     listOrders: [CustomerOrderDto]
     listSalespeople: [SalespersonDto]
     listTerritories: [TerritoryDto]
+    list_AvailableReports(input: LoadAvailableReportRequestDtoInput): [ReportDto]
+    list_Config: [ConfigNodeDto]
+    list_EntityClass: [EntityClassDto]
+    list_Report: [ReportDto]
+    list_ReportExecution(reportId: UUID): [ReportExecutionDto]
+    loadById_Report(id: UUID): ReportDto
+    loadByName_Config(configName: String): ConfigOutputDto
+    persistentMessage(code: String): MessageModel
+    persistentMessages(input: PersistentMessageFilterDtoInput): [MessageModel]
+    persistentMessagesByLocales: String
+    sendingMessages: [SendingMessageDto]
+    snapshotsToCompare(targetSnapshotParams: EntityRevisionFilterDtoInput): [EntityRevisionDto]
+    userActions(filter: UserActionsFilterInput): [UserActionOutputDto]
+    userActionsCount(filter: UserActionsFilterInput): Long!
+}
+
+type ReportDto {
+    bands: [BandDto]
+    code: String
+    description: String
+    id: UUID
+    inputParameters: [InputParameterDto]
+    localeNames: String
+    name: String
+    roles: [String]
+    screens: [String]
+    template: ReportTemplateDto
+    valueFormats: [ValueFormatDto]
+    version: Int
+}
+
+type ReportExecutionDto {
+    errorMessage: String
+    executionTime: String
+    finishTime: DateTime
+    id: UUID
+    params: String
+    reportName: String
+    startTime: DateTime
+    success: Boolean!
+    username: String
+}
+
+type ReportTemplateDto {
+    id: UUID
+    name: String
+    outputType: ReportOutputType
+    pieChartDescription: PieChartDescriptionDto
+    pivotTableDescription: PivotTableDescriptionDto
+    tableDescription: TableDescriptionDto
+    version: Int
 }
 
 type SalespersonDto {
@@ -49,10 +212,142 @@ type SalespersonDto {
     territory: TerritoryDto
 }
 
+type SendingAttachmentDto {
+    id: UUID
+    name: String
+}
+
+type SendingMessageDto {
+    address: String
+    attachments: [SendingAttachmentDto]
+    attachmentsName: String
+    attemptsLimit: Int
+    attemptsMade: Int
+    bcc: String
+    bodyContentType: String
+    cc: String
+    contentText: String
+    createTs: DateTime
+    dateSent: DateTime
+    deadline: DateTime
+    from: String
+    headers: String
+    id: UUID
+    important: Boolean
+    status: SendingStatus
+    subject: String
+    updateTs: DateTime
+}
+
+type TableDescriptionDto {
+    bandName: String
+    columnsProperties: String
+    id: UUID
+}
+
 type TerritoryDto {
     id: Long
     name: String
     polygon: Polygon
+}
+
+type UserActionOutputDto {
+    actionDateTime: String
+    clientIp: String
+    componentId: String
+    componentType: String
+    id: String
+    username: String
+}
+
+type ValueFormatDto {
+    formatString: String
+    id: UUID
+    name: String
+}
+
+enum AggregationMode {
+    AVERAGE
+    COUNT
+    COUNT_AS_FRACTION_OF_COLUMNS
+    COUNT_AS_FRACTION_OF_ROWS
+    COUNT_AS_FRACTION_OF_TOTAL
+    COUNT_UNIQUE_VALUES
+    INTEGER_SUM
+    LIST_UNIQUE_VALUES
+    MAXIMUM
+    MINIMUM
+    SUM
+    SUM_AS_FRACTION_OF_COLUMNS
+    SUM_AS_FRACTION_OF_ROWS
+    SUM_AS_FRACTION_OF_TOTAL
+    SUM_OVER_SUM
+}
+
+enum DataSetType {
+    ENTITY_LIST
+    GROOVY
+    JPQL
+    JSON
+    SINGLE_ENTITY
+    SQL
+}
+
+enum ParameterType {
+    BOOLEAN
+    DATE
+    DATETIME
+    DOUBLE
+    ENTITY
+    ENTITY_LIST
+    ENUMERATION
+    INTEGER
+    LONG
+    NUMERIC
+    TEXT
+    TIME
+}
+
+enum ReportOutputType {
+    CHART
+    CSV
+    CUSTOM
+    DOC
+    DOCX
+    HTML
+    PDF
+    PIVOT_TABLE
+    TABLE
+    XLS
+    XLSX
+}
+
+enum ReportType {
+    CUSTOM
+    ENTITY
+    ENTITY_LIST
+}
+
+enum RevisionTypeDto {
+    DELETE
+    INSERT
+    UPDATE
+}
+
+enum SendingStatus {
+    NOT_SENT
+    QUEUE
+    SENDING
+    SENT
+}
+
+enum TemplateFileType {
+    CHART
+    CSV
+    DOCX
+    HTML
+    TABLE
+    XLSX
 }
 
 "BigDecimal"
@@ -91,10 +386,8 @@ scalar OffsetDateTime
 "OffsetTime"
 scalar OffsetTime
 
-"Point"
 scalar Point
 
-"Polygon"
 scalar Polygon
 
 "Short"
@@ -109,11 +402,131 @@ scalar UUID
 "Void"
 scalar Void
 
+input AuditPolicyDtoInput {
+    audited: Boolean!
+    entityFullName: String!
+}
+
+input BandInputDtoInput {
+    dataSetType: DataSetType
+    id: UUID
+    name: String
+    position: Int!
+    query: String
+}
+
+input ConfigInputDtoInput {
+    name: String
+    value: String
+}
+
 input CustomerOrderDtoInput {
     amount: Int
     id: Long
     location: Point
     salesperson: SalespersonDtoInput
+}
+
+input EntityRevisionFilterDtoInput {
+    entityFullName: String!
+    entityId: String!
+    revisionId: Int!
+}
+
+input InputParameterInputDtoInput {
+    alias: String
+    entityClassName: String
+    graphQLIdProperty: String
+    graphQLQuery: String
+    id: UUID
+    name: String
+    position: Int!
+    required: Boolean!
+    type: ParameterType
+}
+
+input LoadAvailableReportRequestDtoInput {
+    locale: String
+}
+
+input MapInput
+
+input MessageModelInput {
+    code: String
+    values: MapInput
+}
+
+input PersistentMessageFilterDtoInput {
+    code: String
+    message: String
+}
+
+input PieChartDescriptionInputDtoInput {
+    bandName: String
+    id: UUID
+    titleField: String
+    valueField: String
+}
+
+input PivotTableDescriptionInputDtoInput {
+    aggregationMode: AggregationMode
+    aggregationProperties: String
+    bandName: String
+    columnsProperties: String
+    id: UUID
+    rowsProperties: String
+}
+
+input ReportInputDtoInput {
+    bands: [BandInputDtoInput]
+    code: String
+    description: String
+    id: UUID
+    inputParameters: [InputParameterInputDtoInput]
+    localeNames: String
+    name: String
+    roles: [StringInput]
+    screens: [StringInput]
+    template: ReportTemplateInputDtoInput
+    valueFormats: [ValueFormatInputDtoInput]
+    version: Int
+}
+
+input ReportTemplateInputDtoInput {
+    id: UUID
+    name: String
+    outputType: ReportOutputType
+    pieChartDescription: PieChartDescriptionInputDtoInput
+    pivotTableDescription: PivotTableDescriptionInputDtoInput
+    tableDescription: TableDescriptionInputDtoInput
+    version: Int
+}
+
+input ReportWizardDataDtoInput {
+    entityClassName: String
+    graphQLIdProperty: String
+    graphQLQueryName: String
+    graphQLQueryProperties: [StringInput]
+    reportName: String
+    reportRegionProperties: [StringInput]
+    reportType: ReportType
+    templateFileType: TemplateFileType
+}
+
+input ResendMessageDtoInput {
+    address: String
+    bcc: String
+    cc: String
+    sourceMessageId: UUID
+}
+
+input RevisionFilterDtoInput {
+    entityFullName: String
+    entityId: String
+    from: String
+    revisionType: RevisionTypeDto
+    to: String
+    username: String
 }
 
 input SalespersonDtoInput {
@@ -128,8 +541,39 @@ input SendEmailDtoInput {
     address: String
 }
 
+input StringInput {
+    hash: Int!
+}
+
+input TableDescriptionInputDtoInput {
+    bandName: String
+    columnsProperties: String
+    id: UUID
+}
+
 input TerritoryDtoInput {
     id: Long
     name: String
     polygon: Polygon
+}
+
+input UserActionInputDtoInput {
+    actionDateTime: String
+    clientIp: String
+    componentId: String
+    componentType: String
+}
+
+input UserActionsFilterInput {
+    componentId: String
+    componentType: String
+    endTime: String
+    startTime: String
+    username: String
+}
+
+input ValueFormatInputDtoInput {
+    formatString: String
+    id: UUID
+    name: String
 }

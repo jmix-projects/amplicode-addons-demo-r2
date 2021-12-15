@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@amplicode/react-antd": "^0.1.0",
-    "@amplicode/react-core": "^0.1.0",
+    "@amplicode/react-core": "^0.3.1",
+    "@amplicode/react-antd": "^0.2.0",
     "@ant-design/icons": "^4.6.3",
-    "@apollo/client": "^3.4.8",
+    "@apollo/client": "~3.4.8",
     "@react-buddy/ide-toolbox": "^1.0.0",
     "@react-buddy/react-scripts": "^1.0.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -17,12 +17,6 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.9",
-    "amplicode-audit": "^0.1.0-snapshot",
-    "amplicode-maps": "^0.1.0-snapshot",
-    "amplicode-persistentparameters": "^0.1.0-snapshot",
-    "amplicode-reports": "^0.1.0-snapshot",
-    "amplicode-mail": "^0.1.0-snapshot",
-    "amplicode-persistentmessages": "^0.1.0-snapshot",
     "antd": "^4.16.12",
     "axios": "^0.21.1",
     "graphql": "^15.5.1",
@@ -40,7 +34,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate": "graphql-codegen",
+    "generate:watch": "graphql-codegen --watch",
+    "postinstall": "npm run generate"
   },
   "eslintConfig": {
     "extends": [
@@ -48,13 +45,30 @@
       "react-app/jest"
     ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "proxy": "http://localhost:8080",
   "devDependencies": {
-    "@types/qs": "^6.9.7"
+    "@amplicode/gql": "file:src/gql",
+    "@graphql-codegen/cli": "^2.2.0",
+    "@graphql-codegen/gql-tag-operations-preset": "^1.1.7",
+    "@graphql-codegen/typescript": "^2.2.2",
+    "@types/qs": "^6.9.7",
+    "prettier": "^2.4.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!antd|@ant-design|@react-buddy|rc-.+?|@babel/runtime).+(js|jsx)$"
+    ]
   }
 }
