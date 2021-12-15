@@ -1,0 +1,1 @@
+amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-persistentparameters
