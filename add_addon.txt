@@ -2,3 +2,4 @@ amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-persis
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-reports
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-persistentmessages
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-emailtemplates
+amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-mail
