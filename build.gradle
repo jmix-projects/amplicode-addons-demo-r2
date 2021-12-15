@@ -42,6 +42,7 @@ dependencies {
     implementation 'com.amplicode.reports:amplicode-reports-starter'
     implementation 'com.amplicode.audit:amplicode-audit-starter'
     implementation 'com.amplicode.mail:amplicode-mail-starter'
+    implementation 'com.amplicode.emailtemplates:amplicode-emailtemplates-starter'
 
     implementation 'org.springframework.boot:spring-boot-starter-quartz'
 

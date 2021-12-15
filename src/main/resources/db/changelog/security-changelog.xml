@@ -34,98 +34,57 @@
             <column name="authority"/>
         </createIndex>
 
-        <insert tableName="users" dbms="postgresql, hsqldb, mssql">
-            <column name="username" value="admin"/>
-            <column name="password" value="{noop}admin"/>
-            <column name="enabled" valueBoolean="true"/>
-        </insert>
-        <insert tableName="users" dbms="oracle, mysql, mariadb">
+        <insert tableName="users">
             <column name="username" value="admin"/>
             <column name="password" value="{noop}admin"/>
             <column name="enabled" valueBoolean="true"/>
         </insert>
 
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
-            <column name="username" value="admin"/>
-            <column name="authority" value="ROLE_ADMIN"/>
-        </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
+        <insert tableName="authorities">
             <column name="username" value="admin"/>
             <column name="authority" value="ROLE_ADMIN"/>
         </insert>
 
-        <insert tableName="users" dbms="postgresql, hsqldb, mssql">
-            <column name="username" value="user"/>
-            <column name="password" value="{noop}user"/>
-            <column name="enabled" valueBoolean="true"/>
-        </insert>
-        <insert tableName="users" dbms="oracle, mysql, mariadb">
-            <column name="username" value="user"/>
-            <column name="password" value="{noop}user"/>
-            <column name="enabled" valueBoolean="true"/>
-        </insert>
-
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
-            <column name="username" value="user"/>
-            <column name="authority" value="ROLE_USER"/>
-        </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
-            <column name="username" value="user"/>
-            <column name="authority" value="ROLE_USER"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="2" author="Amplicode Addons">
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
-            <column name="username" value="admin"/>
-            <column name="authority" value="ROLE_REPORT_ADMIN"/>
-        </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
+        <insert tableName="authorities">
             <column name="username" value="admin"/>
             <column name="authority" value="ROLE_REPORT_ADMIN"/>
         </insert>
 
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
-            <column name="username" value="user"/>
-            <column name="authority" value="ROLE_REPORT_EXECUTOR"/>
-        </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
-            <column name="username" value="user"/>
-            <column name="authority" value="ROLE_REPORT_EXECUTOR"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="3" author="Amplicode Addons">
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
+        <insert tableName="authorities">
             <column name="username" value="admin"/>
             <column name="authority" value="ROLE_PERSISTENT_PARAMETERS_ADMIN"/>
         </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
-            <column name="username" value="admin"/>
-            <column name="authority" value="ROLE_PERSISTENT_PARAMETERS_ADMIN"/>
-        </insert>
-    </changeSet>
 
-    <changeSet id="4" author="Amplicode Addons">
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
+        <insert tableName="authorities">
             <column name="username" value="admin"/>
             <column name="authority" value="ROLE_EMAIL_ADMIN"/>
         </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
-            <column name="username" value="admin"/>
-            <column name="authority" value="ROLE_EMAIL_ADMIN"/>
-        </insert>
-    </changeSet>
 
-    <changeSet id="5" author="Amplicode Addons">
-        <insert tableName="authorities" dbms="postgresql, hsqldb, mssql">
+        <insert tableName="authorities">
             <column name="username" value="admin"/>
             <column name="authority" value="ROLE_PERSISTENT_MESSAGES_ADMIN"/>
         </insert>
-        <insert tableName="authorities" dbms="oracle, mysql, mariadb">
-            <column name="username" value="admin"/>
-            <column name="authority" value="ROLE_PERSISTENT_MESSAGES_ADMIN"/>
-        </insert>
-    </changeSet>
 
+        <insert tableName="authorities">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ROLE_EMAIL_TEMPLATES_ADMIN"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="user"/>
+            <column name="password" value="{noop}user"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="authorities">
+            <column name="username" value="user"/>
+            <column name="authority" value="ROLE_USER"/>
+        </insert>
+
+        <insert tableName="authorities">
+            <column name="username" value="user"/>
+            <column name="authority" value="ROLE_REPORT_EXECUTOR"/>
+        </insert>
+
+    </changeSet>
 </databaseChangeLog>
