@@ -17,6 +17,7 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.9",
+    "amplicode-persistentmessages": "^0.1.1-snapshot.4",
     "amplicode-persistentparameters": "^0.1.1-snapshot.1",
     "amplicode-reports": "^0.1.1-snapshot.3",
     "antd": "^4.16.12",

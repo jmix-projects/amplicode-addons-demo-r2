@@ -1,2 +1,3 @@
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-persistentparameters
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-reports
+amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-persistentmessages
