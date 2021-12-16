@@ -69,17 +69,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedMethods(HttpMethod.GET.name(), HttpMethod.POST.name())
-                        .allowedHeaders("*")
-                        .allowedOrigins("http://localhost:3000");
-            }
-        };
-    }
 }
