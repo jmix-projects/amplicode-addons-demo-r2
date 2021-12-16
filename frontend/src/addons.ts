@@ -5,4 +5,5 @@ import "amplicode-dataimport";
 import "amplicode-mail";
 import "amplicode-persistentparameters";
 import "amplicode-persistentmessages";
+import "amplicode-audit";
 export {};

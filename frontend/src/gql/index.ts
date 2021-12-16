@@ -3,113 +3,113 @@ import * as graphql from "./graphql";
 import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 
 const documents = {
-  "\r\n    mutation sendEmailAsync($input: SendEmailDtoInput) {\r\n        sendEmailAsync(input: $input)\r\n    }\r\n":
+  "\n    mutation sendEmailAsync($input: SendEmailDtoInput) {\n        sendEmailAsync(input: $input)\n    }\n":
     graphql.SendEmailAsyncDocument,
-  "\r\n  query findOrder($id: Long!) {\r\n    findOrder(id: $id) {\r\n      amount\r\n      id\r\n      location\r\n      salesperson {\r\n        id\r\n        location\r\n      }\r\n    }\r\n  }\r\n":
+  "\n  query findOrder($id: Long!) {\n    findOrder(id: $id) {\n      amount\n      id\n      location\n      salesperson {\n        id\n        location\n      }\n    }\n  }\n":
     graphql.FindOrderDocument,
-  "\r\n  mutation updateOrder($input: CustomerOrderDtoInput) {\r\n    updateOrder(input: $input) {\r\n      amount\r\n      id\r\n      location\r\n      salesperson {\r\n        id\r\n      }\r\n    }\r\n  }\r\n":
+  "\n  mutation updateOrder($input: CustomerOrderDtoInput) {\n    updateOrder(input: $input) {\n      amount\n      id\n      location\n      salesperson {\n        id\n      }\n    }\n  }\n":
     graphql.UpdateOrderDocument,
-  "\r\n              fragment New_CustomerOrderDto on CustomerOrderDto {\r\n                id\r\n              }\r\n            ":
+  "\n              fragment New_CustomerOrderDto on CustomerOrderDto {\n                id\n              }\n            ":
     graphql.New_CustomerOrderDtoFragmentDoc,
-  "\r\n  query listOrders {\r\n    listOrders {\r\n      amount\r\n      id\r\n      location\r\n    }\r\n  }\r\n":
+  "\n  query listOrders {\n    listOrders {\n      amount\n      id\n      location\n    }\n  }\n":
     graphql.ListOrdersDocument,
-  "\r\n  mutation deleteOrder($id: Long!) {\r\n    deleteOrder(id: $id)\r\n  }\r\n":
+  "\n  mutation deleteOrder($id: Long!) {\n    deleteOrder(id: $id)\n  }\n":
     graphql.DeleteOrderDocument,
-  "\r\n    query getStringParameter {\r\n        getStringParameter\r\n    }\r\n":
+  "\n    query getStringParameter {\n        getStringParameter\n    }\n":
     graphql.GetStringParameterDocument,
-  "\r\n    query getNumberParameter {\r\n        getNumberParameter\r\n    }\r\n":
+  "\n    query getNumberParameter {\n        getNumberParameter\n    }\n":
     graphql.GetNumberParameterDocument,
-  "\r\n    query getDateTimeParameter {\r\n        getDateTimeParameter\r\n    }\r\n":
+  "\n    query getDateTimeParameter {\n        getDateTimeParameter\n    }\n":
     graphql.GetDateTimeParameterDocument,
-  "\r\n    query getEnumParameter {\r\n        getEnumParameter\r\n    }\r\n":
+  "\n    query getEnumParameter {\n        getEnumParameter\n    }\n":
     graphql.GetEnumParameterDocument,
-  "\r\n    query getEntityParameter {\r\n        getEntityParameter\r\n    }\r\n":
+  "\n    query getEntityParameter {\n        getEntityParameter\n    }\n":
     graphql.GetEntityParameterDocument,
-  "\r\n    query findSalesperson($id: Long!) {\r\n        findSalesperson(id: $id) {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n            territory {\r\n                id\r\n                name\r\n                polygon\r\n            }\r\n        }\r\n    }\r\n":
+  "\n    query findSalesperson($id: Long!) {\n        findSalesperson(id: $id) {\n            id\n            location\n            name\n            phone\n            territory {\n                id\n                name\n                polygon\n            }\n        }\n    }\n":
     graphql.FindSalespersonDocument,
-  "\r\n    mutation updateSalesperson($input: SalespersonDtoInput) {\r\n        updateSalesperson(input: $input) {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n            territory {\r\n                id\r\n                name\r\n                polygon\r\n            }\r\n        }\r\n    }\r\n":
+  "\n    mutation updateSalesperson($input: SalespersonDtoInput) {\n        updateSalesperson(input: $input) {\n            id\n            location\n            name\n            phone\n            territory {\n                id\n                name\n                polygon\n            }\n        }\n    }\n":
     graphql.UpdateSalespersonDocument,
-  "\r\n              fragment New_SalespersonDto on SalespersonDto {\r\n                id\r\n              }\r\n            ":
+  "\n              fragment New_SalespersonDto on SalespersonDto {\n                id\n              }\n            ":
     graphql.New_SalespersonDtoFragmentDoc,
-  "\r\n    query listSalespeople {\r\n        listSalespeople {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n        }\r\n    }\r\n":
+  "\n    query listSalespeople {\n        listSalespeople {\n            id\n            location\n            name\n            phone\n        }\n    }\n":
     graphql.ListSalespeopleDocument,
-  "\r\n    mutation deleteSalesperson($id: Long!) {\r\n        deleteSalesperson(id: $id)\r\n    }\r\n":
+  "\n    mutation deleteSalesperson($id: Long!) {\n        deleteSalesperson(id: $id)\n    }\n":
     graphql.DeleteSalespersonDocument,
-  "\r\n  query findTerritory($id: Long!) {\r\n    findTerritory(id: $id) {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n":
+  "\n  query findTerritory($id: Long!) {\n    findTerritory(id: $id) {\n      id\n      name\n      polygon\n    }\n  }\n":
     graphql.FindTerritoryDocument,
-  "\r\n  mutation updateTerritory($input: TerritoryDtoInput) {\r\n    updateTerritory(input: $input) {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n":
+  "\n  mutation updateTerritory($input: TerritoryDtoInput) {\n    updateTerritory(input: $input) {\n      id\n      name\n      polygon\n    }\n  }\n":
     graphql.UpdateTerritoryDocument,
-  "\r\n              fragment New_TerritoryDto on TerritoryDto {\r\n                id\r\n              }\r\n            ":
+  "\n              fragment New_TerritoryDto on TerritoryDto {\n                id\n              }\n            ":
     graphql.New_TerritoryDtoFragmentDoc,
-  "\r\n  query listTerritories {\r\n    listTerritories {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n":
+  "\n  query listTerritories {\n    listTerritories {\n      id\n      name\n      polygon\n    }\n  }\n":
     graphql.ListTerritoriesDocument,
-  "\r\n  mutation deleteTerritory($id: Long!) {\r\n    deleteTerritory(id: $id)\r\n  }\r\n":
+  "\n  mutation deleteTerritory($id: Long!) {\n    deleteTerritory(id: $id)\n  }\n":
     graphql.DeleteTerritoryDocument,
 };
 
 export function gql(
-  source: "\r\n    mutation sendEmailAsync($input: SendEmailDtoInput) {\r\n        sendEmailAsync(input: $input)\r\n    }\r\n"
-): typeof documents["\r\n    mutation sendEmailAsync($input: SendEmailDtoInput) {\r\n        sendEmailAsync(input: $input)\r\n    }\r\n"];
+  source: "\n    mutation sendEmailAsync($input: SendEmailDtoInput) {\n        sendEmailAsync(input: $input)\n    }\n"
+): typeof documents["\n    mutation sendEmailAsync($input: SendEmailDtoInput) {\n        sendEmailAsync(input: $input)\n    }\n"];
 export function gql(
-  source: "\r\n  query findOrder($id: Long!) {\r\n    findOrder(id: $id) {\r\n      amount\r\n      id\r\n      location\r\n      salesperson {\r\n        id\r\n        location\r\n      }\r\n    }\r\n  }\r\n"
-): typeof documents["\r\n  query findOrder($id: Long!) {\r\n    findOrder(id: $id) {\r\n      amount\r\n      id\r\n      location\r\n      salesperson {\r\n        id\r\n        location\r\n      }\r\n    }\r\n  }\r\n"];
+  source: "\n  query findOrder($id: Long!) {\n    findOrder(id: $id) {\n      amount\n      id\n      location\n      salesperson {\n        id\n        location\n      }\n    }\n  }\n"
+): typeof documents["\n  query findOrder($id: Long!) {\n    findOrder(id: $id) {\n      amount\n      id\n      location\n      salesperson {\n        id\n        location\n      }\n    }\n  }\n"];
 export function gql(
-  source: "\r\n  mutation updateOrder($input: CustomerOrderDtoInput) {\r\n    updateOrder(input: $input) {\r\n      amount\r\n      id\r\n      location\r\n      salesperson {\r\n        id\r\n      }\r\n    }\r\n  }\r\n"
-): typeof documents["\r\n  mutation updateOrder($input: CustomerOrderDtoInput) {\r\n    updateOrder(input: $input) {\r\n      amount\r\n      id\r\n      location\r\n      salesperson {\r\n        id\r\n      }\r\n    }\r\n  }\r\n"];
+  source: "\n  mutation updateOrder($input: CustomerOrderDtoInput) {\n    updateOrder(input: $input) {\n      amount\n      id\n      location\n      salesperson {\n        id\n      }\n    }\n  }\n"
+): typeof documents["\n  mutation updateOrder($input: CustomerOrderDtoInput) {\n    updateOrder(input: $input) {\n      amount\n      id\n      location\n      salesperson {\n        id\n      }\n    }\n  }\n"];
 export function gql(
-  source: "\r\n              fragment New_CustomerOrderDto on CustomerOrderDto {\r\n                id\r\n              }\r\n            "
-): typeof documents["\r\n              fragment New_CustomerOrderDto on CustomerOrderDto {\r\n                id\r\n              }\r\n            "];
+  source: "\n              fragment New_CustomerOrderDto on CustomerOrderDto {\n                id\n              }\n            "
+): typeof documents["\n              fragment New_CustomerOrderDto on CustomerOrderDto {\n                id\n              }\n            "];
 export function gql(
-  source: "\r\n  query listOrders {\r\n    listOrders {\r\n      amount\r\n      id\r\n      location\r\n    }\r\n  }\r\n"
-): typeof documents["\r\n  query listOrders {\r\n    listOrders {\r\n      amount\r\n      id\r\n      location\r\n    }\r\n  }\r\n"];
+  source: "\n  query listOrders {\n    listOrders {\n      amount\n      id\n      location\n    }\n  }\n"
+): typeof documents["\n  query listOrders {\n    listOrders {\n      amount\n      id\n      location\n    }\n  }\n"];
 export function gql(
-  source: "\r\n  mutation deleteOrder($id: Long!) {\r\n    deleteOrder(id: $id)\r\n  }\r\n"
-): typeof documents["\r\n  mutation deleteOrder($id: Long!) {\r\n    deleteOrder(id: $id)\r\n  }\r\n"];
+  source: "\n  mutation deleteOrder($id: Long!) {\n    deleteOrder(id: $id)\n  }\n"
+): typeof documents["\n  mutation deleteOrder($id: Long!) {\n    deleteOrder(id: $id)\n  }\n"];
 export function gql(
-  source: "\r\n    query getStringParameter {\r\n        getStringParameter\r\n    }\r\n"
-): typeof documents["\r\n    query getStringParameter {\r\n        getStringParameter\r\n    }\r\n"];
+  source: "\n    query getStringParameter {\n        getStringParameter\n    }\n"
+): typeof documents["\n    query getStringParameter {\n        getStringParameter\n    }\n"];
 export function gql(
-  source: "\r\n    query getNumberParameter {\r\n        getNumberParameter\r\n    }\r\n"
-): typeof documents["\r\n    query getNumberParameter {\r\n        getNumberParameter\r\n    }\r\n"];
+  source: "\n    query getNumberParameter {\n        getNumberParameter\n    }\n"
+): typeof documents["\n    query getNumberParameter {\n        getNumberParameter\n    }\n"];
 export function gql(
-  source: "\r\n    query getDateTimeParameter {\r\n        getDateTimeParameter\r\n    }\r\n"
-): typeof documents["\r\n    query getDateTimeParameter {\r\n        getDateTimeParameter\r\n    }\r\n"];
+  source: "\n    query getDateTimeParameter {\n        getDateTimeParameter\n    }\n"
+): typeof documents["\n    query getDateTimeParameter {\n        getDateTimeParameter\n    }\n"];
 export function gql(
-  source: "\r\n    query getEnumParameter {\r\n        getEnumParameter\r\n    }\r\n"
-): typeof documents["\r\n    query getEnumParameter {\r\n        getEnumParameter\r\n    }\r\n"];
+  source: "\n    query getEnumParameter {\n        getEnumParameter\n    }\n"
+): typeof documents["\n    query getEnumParameter {\n        getEnumParameter\n    }\n"];
 export function gql(
-  source: "\r\n    query getEntityParameter {\r\n        getEntityParameter\r\n    }\r\n"
-): typeof documents["\r\n    query getEntityParameter {\r\n        getEntityParameter\r\n    }\r\n"];
+  source: "\n    query getEntityParameter {\n        getEntityParameter\n    }\n"
+): typeof documents["\n    query getEntityParameter {\n        getEntityParameter\n    }\n"];
 export function gql(
-  source: "\r\n    query findSalesperson($id: Long!) {\r\n        findSalesperson(id: $id) {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n            territory {\r\n                id\r\n                name\r\n                polygon\r\n            }\r\n        }\r\n    }\r\n"
-): typeof documents["\r\n    query findSalesperson($id: Long!) {\r\n        findSalesperson(id: $id) {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n            territory {\r\n                id\r\n                name\r\n                polygon\r\n            }\r\n        }\r\n    }\r\n"];
+  source: "\n    query findSalesperson($id: Long!) {\n        findSalesperson(id: $id) {\n            id\n            location\n            name\n            phone\n            territory {\n                id\n                name\n                polygon\n            }\n        }\n    }\n"
+): typeof documents["\n    query findSalesperson($id: Long!) {\n        findSalesperson(id: $id) {\n            id\n            location\n            name\n            phone\n            territory {\n                id\n                name\n                polygon\n            }\n        }\n    }\n"];
 export function gql(
-  source: "\r\n    mutation updateSalesperson($input: SalespersonDtoInput) {\r\n        updateSalesperson(input: $input) {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n            territory {\r\n                id\r\n                name\r\n                polygon\r\n            }\r\n        }\r\n    }\r\n"
-): typeof documents["\r\n    mutation updateSalesperson($input: SalespersonDtoInput) {\r\n        updateSalesperson(input: $input) {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n            territory {\r\n                id\r\n                name\r\n                polygon\r\n            }\r\n        }\r\n    }\r\n"];
+  source: "\n    mutation updateSalesperson($input: SalespersonDtoInput) {\n        updateSalesperson(input: $input) {\n            id\n            location\n            name\n            phone\n            territory {\n                id\n                name\n                polygon\n            }\n        }\n    }\n"
+): typeof documents["\n    mutation updateSalesperson($input: SalespersonDtoInput) {\n        updateSalesperson(input: $input) {\n            id\n            location\n            name\n            phone\n            territory {\n                id\n                name\n                polygon\n            }\n        }\n    }\n"];
 export function gql(
-  source: "\r\n              fragment New_SalespersonDto on SalespersonDto {\r\n                id\r\n              }\r\n            "
-): typeof documents["\r\n              fragment New_SalespersonDto on SalespersonDto {\r\n                id\r\n              }\r\n            "];
+  source: "\n              fragment New_SalespersonDto on SalespersonDto {\n                id\n              }\n            "
+): typeof documents["\n              fragment New_SalespersonDto on SalespersonDto {\n                id\n              }\n            "];
 export function gql(
-  source: "\r\n    query listSalespeople {\r\n        listSalespeople {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n        }\r\n    }\r\n"
-): typeof documents["\r\n    query listSalespeople {\r\n        listSalespeople {\r\n            id\r\n            location\r\n            name\r\n            phone\r\n        }\r\n    }\r\n"];
+  source: "\n    query listSalespeople {\n        listSalespeople {\n            id\n            location\n            name\n            phone\n        }\n    }\n"
+): typeof documents["\n    query listSalespeople {\n        listSalespeople {\n            id\n            location\n            name\n            phone\n        }\n    }\n"];
 export function gql(
-  source: "\r\n    mutation deleteSalesperson($id: Long!) {\r\n        deleteSalesperson(id: $id)\r\n    }\r\n"
-): typeof documents["\r\n    mutation deleteSalesperson($id: Long!) {\r\n        deleteSalesperson(id: $id)\r\n    }\r\n"];
+  source: "\n    mutation deleteSalesperson($id: Long!) {\n        deleteSalesperson(id: $id)\n    }\n"
+): typeof documents["\n    mutation deleteSalesperson($id: Long!) {\n        deleteSalesperson(id: $id)\n    }\n"];
 export function gql(
-  source: "\r\n  query findTerritory($id: Long!) {\r\n    findTerritory(id: $id) {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n"
-): typeof documents["\r\n  query findTerritory($id: Long!) {\r\n    findTerritory(id: $id) {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n"];
+  source: "\n  query findTerritory($id: Long!) {\n    findTerritory(id: $id) {\n      id\n      name\n      polygon\n    }\n  }\n"
+): typeof documents["\n  query findTerritory($id: Long!) {\n    findTerritory(id: $id) {\n      id\n      name\n      polygon\n    }\n  }\n"];
 export function gql(
-  source: "\r\n  mutation updateTerritory($input: TerritoryDtoInput) {\r\n    updateTerritory(input: $input) {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n"
-): typeof documents["\r\n  mutation updateTerritory($input: TerritoryDtoInput) {\r\n    updateTerritory(input: $input) {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n"];
+  source: "\n  mutation updateTerritory($input: TerritoryDtoInput) {\n    updateTerritory(input: $input) {\n      id\n      name\n      polygon\n    }\n  }\n"
+): typeof documents["\n  mutation updateTerritory($input: TerritoryDtoInput) {\n    updateTerritory(input: $input) {\n      id\n      name\n      polygon\n    }\n  }\n"];
 export function gql(
-  source: "\r\n              fragment New_TerritoryDto on TerritoryDto {\r\n                id\r\n              }\r\n            "
-): typeof documents["\r\n              fragment New_TerritoryDto on TerritoryDto {\r\n                id\r\n              }\r\n            "];
+  source: "\n              fragment New_TerritoryDto on TerritoryDto {\n                id\n              }\n            "
+): typeof documents["\n              fragment New_TerritoryDto on TerritoryDto {\n                id\n              }\n            "];
 export function gql(
-  source: "\r\n  query listTerritories {\r\n    listTerritories {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n"
-): typeof documents["\r\n  query listTerritories {\r\n    listTerritories {\r\n      id\r\n      name\r\n      polygon\r\n    }\r\n  }\r\n"];
+  source: "\n  query listTerritories {\n    listTerritories {\n      id\n      name\n      polygon\n    }\n  }\n"
+): typeof documents["\n  query listTerritories {\n    listTerritories {\n      id\n      name\n      polygon\n    }\n  }\n"];
 export function gql(
-  source: "\r\n  mutation deleteTerritory($id: Long!) {\r\n    deleteTerritory(id: $id)\r\n  }\r\n"
-): typeof documents["\r\n  mutation deleteTerritory($id: Long!) {\r\n    deleteTerritory(id: $id)\r\n  }\r\n"];
+  source: "\n  mutation deleteTerritory($id: Long!) {\n    deleteTerritory(id: $id)\n  }\n"
+): typeof documents["\n  mutation deleteTerritory($id: Long!) {\n    deleteTerritory(id: $id)\n  }\n"];
 
 export function gql(source: string): unknown;
 export function gql(source: string) {

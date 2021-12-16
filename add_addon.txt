@@ -5,4 +5,5 @@ amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-emailt
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-mail
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-maps
 amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-dataimport
+amplicodegen react-typescript:addon --dest . --addonPackageName amplicode-audit
 
