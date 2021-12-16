@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -755,3 +756,202 @@ export type ValueFormatInputDtoInput = {
   id?: InputMaybe<Scalars["UUID"]>;
   name?: InputMaybe<Scalars["String"]>;
 };
+
+export type SendEmailAsyncMutationVariables = Exact<{
+  input?: InputMaybe<SendEmailDtoInput>;
+}>;
+
+export type SendEmailAsyncMutation = {
+  __typename?: "Mutation";
+  sendEmailAsync: boolean;
+};
+
+export type GetStringParameterQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetStringParameterQuery = {
+  __typename?: "Query";
+  getStringParameter?: string | null | undefined;
+};
+
+export type GetNumberParameterQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetNumberParameterQuery = {
+  __typename?: "Query";
+  getNumberParameter: number;
+};
+
+export type GetDateTimeParameterQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetDateTimeParameterQuery = {
+  __typename?: "Query";
+  getDateTimeParameter?: string | null | undefined;
+};
+
+export type GetEnumParameterQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetEnumParameterQuery = {
+  __typename?: "Query";
+  getEnumParameter?: string | null | undefined;
+};
+
+export type GetEntityParameterQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetEntityParameterQuery = {
+  __typename?: "Query";
+  getEntityParameter: any;
+};
+
+export const SendEmailAsyncDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "sendEmailAsync" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "input" },
+          },
+          type: {
+            kind: "NamedType",
+            name: { kind: "Name", value: "SendEmailDtoInput" },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "sendEmailAsync" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "input" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "input" },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  SendEmailAsyncMutation,
+  SendEmailAsyncMutationVariables
+>;
+export const GetStringParameterDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "getStringParameter" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "getStringParameter" },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetStringParameterQuery,
+  GetStringParameterQueryVariables
+>;
+export const GetNumberParameterDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "getNumberParameter" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "getNumberParameter" },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetNumberParameterQuery,
+  GetNumberParameterQueryVariables
+>;
+export const GetDateTimeParameterDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "getDateTimeParameter" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "getDateTimeParameter" },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetDateTimeParameterQuery,
+  GetDateTimeParameterQueryVariables
+>;
+export const GetEnumParameterDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "getEnumParameter" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "getEnumParameter" } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetEnumParameterQuery,
+  GetEnumParameterQueryVariables
+>;
+export const GetEntityParameterDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "getEntityParameter" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "getEntityParameter" },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetEntityParameterQuery,
+  GetEntityParameterQueryVariables
+>;

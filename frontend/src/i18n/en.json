@@ -37,5 +37,12 @@
   "hotkeys.screen.nextTab": "Go to the next tab",
   "hotkeys.screen.previousTab": "Go to the previous tab",
 
-  "screen.PersistentParametersDemoComponent": "Persistent Parameters Demo Screen"
+  "screen.PersistentParametersDemoComponent": "Persistent Parameters Demo Screen",
+  "screen.SendEmailComponent": "Send Email",
+  "screen.TerritoryList": "Territory List",
+  "screen.TerritoryDetails": "Territory Details",
+  "screen.SalespersonList": "Salesperson List",
+  "screen.SalespersonDetails": "Salesperson Details",
+  "screen.OrderList": "Order List",
+  "screen.OrderDetails": "Order Details"
 }

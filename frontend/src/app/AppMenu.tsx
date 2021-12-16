@@ -51,6 +51,15 @@ export const AppMenu = observer(() => {
             <Menu.Item icon={<HomeOutlined/>} title={getCaption("home")} key="home">
                 {getCaption("home")}
             </Menu.Item>
+            <Menu.Item title={getCaption("territory-list")} key="territory-list">
+                {getCaption("territory-list")}
+            </Menu.Item>
+            <Menu.Item title={getCaption("salesperson-list")} key="salesperson-list">
+                {getCaption("salesperson-list")}
+            </Menu.Item>
+            <Menu.Item title={getCaption("order-list")} key="order-list">
+                {getCaption("order-list")}
+            </Menu.Item>
             <AddonsMenu key={"addonsMenu"}/>
             {/*If you don't need Screen API (tabs / breadcrumbs) you can just use React Router components*/}
             {/*<Menu.Item*/}
@@ -62,6 +71,9 @@ export const AppMenu = observer(() => {
             <Menu.Item title={getCaption("persistent-parameters-demo-component")}
                        key="persistent-parameters-demo-component">
                 {getCaption("persistent-parameters-demo-component")}
+            </Menu.Item>
+            <Menu.Item title={getCaption("send-email-component")} key="send-email-component">
+                {getCaption("send-email-component")}
             </Menu.Item>
         </Menu>
     );
