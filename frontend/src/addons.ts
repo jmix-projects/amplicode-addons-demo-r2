@@ -1,3 +1,4 @@
+import "amplicode-maps";
 import "amplicode-reports";
 import "amplicode-emailtemplates";
 import "amplicode-mail";

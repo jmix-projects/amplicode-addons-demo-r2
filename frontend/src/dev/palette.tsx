@@ -1,3 +1,4 @@
+import { MapsPalette } from "amplicode-maps/palette";
 import React from "react";
 import {
   Category,
@@ -413,6 +414,7 @@ const palette = () => (
       </Component>
       */}
     </Category>
+    <MapsPalette />
   </Palette>
 );
 
