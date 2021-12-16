@@ -222,10 +222,10 @@ function getUpdateFn(values: any) {
       fields: {
         listOrders(existingRefs = []) {
           const updatedItemRef = cache.writeFragment({
-            id: `OrderDto:${updateResult.id}`,
+            id: `CustomerOrderDto:${updateResult.id}`,
             data: values,
             fragment: gql(`
-              fragment New_OrderDto on OrderDto {
+              fragment New_CustomerOrderDto on CustomerOrderDto {
                 id
               }
             `)

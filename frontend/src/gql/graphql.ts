@@ -766,6 +766,85 @@ export type SendEmailAsyncMutation = {
   sendEmailAsync: boolean;
 };
 
+export type FindOrderQueryVariables = Exact<{
+  id: Scalars["Long"];
+}>;
+
+export type FindOrderQuery = {
+  __typename?: "Query";
+  findOrder?:
+    | {
+        __typename?: "CustomerOrderDto";
+        amount?: number | null | undefined;
+        id?: any | null | undefined;
+        location?: any | null | undefined;
+        salesperson?:
+          | {
+              __typename?: "SalespersonDto";
+              id?: any | null | undefined;
+              location?: any | null | undefined;
+            }
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type UpdateOrderMutationVariables = Exact<{
+  input?: InputMaybe<CustomerOrderDtoInput>;
+}>;
+
+export type UpdateOrderMutation = {
+  __typename?: "Mutation";
+  updateOrder?:
+    | {
+        __typename?: "CustomerOrderDto";
+        amount?: number | null | undefined;
+        id?: any | null | undefined;
+        location?: any | null | undefined;
+        salesperson?:
+          | { __typename?: "SalespersonDto"; id?: any | null | undefined }
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type New_CustomerOrderDtoFragment = {
+  __typename?: "CustomerOrderDto";
+  id?: any | null | undefined;
+};
+
+export type ListOrdersQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ListOrdersQuery = {
+  __typename?: "Query";
+  listOrders?:
+    | Array<
+        | {
+            __typename?: "CustomerOrderDto";
+            amount?: number | null | undefined;
+            id?: any | null | undefined;
+            location?: any | null | undefined;
+          }
+        | null
+        | undefined
+      >
+    | null
+    | undefined;
+};
+
+export type DeleteOrderMutationVariables = Exact<{
+  id: Scalars["Long"];
+}>;
+
+export type DeleteOrderMutation = {
+  __typename?: "Mutation";
+  deleteOrder: boolean;
+};
+
 export type GetStringParameterQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetStringParameterQuery = {
@@ -803,6 +882,212 @@ export type GetEntityParameterQuery = {
   getEntityParameter: any;
 };
 
+export type FindSalespersonQueryVariables = Exact<{
+  id: Scalars["Long"];
+}>;
+
+export type FindSalespersonQuery = {
+  __typename?: "Query";
+  findSalesperson?:
+    | {
+        __typename?: "SalespersonDto";
+        id?: any | null | undefined;
+        location?: any | null | undefined;
+        name?: string | null | undefined;
+        phone?: string | null | undefined;
+        territory?:
+          | {
+              __typename?: "TerritoryDto";
+              id?: any | null | undefined;
+              name?: string | null | undefined;
+              polygon?: any | null | undefined;
+            }
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type UpdateSalespersonMutationVariables = Exact<{
+  input?: InputMaybe<SalespersonDtoInput>;
+}>;
+
+export type UpdateSalespersonMutation = {
+  __typename?: "Mutation";
+  updateSalesperson?:
+    | {
+        __typename?: "SalespersonDto";
+        id?: any | null | undefined;
+        location?: any | null | undefined;
+        name?: string | null | undefined;
+        phone?: string | null | undefined;
+        territory?:
+          | {
+              __typename?: "TerritoryDto";
+              id?: any | null | undefined;
+              name?: string | null | undefined;
+              polygon?: any | null | undefined;
+            }
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type New_SalespersonDtoFragment = {
+  __typename?: "SalespersonDto";
+  id?: any | null | undefined;
+};
+
+export type ListSalespeopleQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ListSalespeopleQuery = {
+  __typename?: "Query";
+  listSalespeople?:
+    | Array<
+        | {
+            __typename?: "SalespersonDto";
+            id?: any | null | undefined;
+            location?: any | null | undefined;
+            name?: string | null | undefined;
+            phone?: string | null | undefined;
+          }
+        | null
+        | undefined
+      >
+    | null
+    | undefined;
+};
+
+export type DeleteSalespersonMutationVariables = Exact<{
+  id: Scalars["Long"];
+}>;
+
+export type DeleteSalespersonMutation = {
+  __typename?: "Mutation";
+  deleteSalesperson: boolean;
+};
+
+export type FindTerritoryQueryVariables = Exact<{
+  id: Scalars["Long"];
+}>;
+
+export type FindTerritoryQuery = {
+  __typename?: "Query";
+  findTerritory?:
+    | {
+        __typename?: "TerritoryDto";
+        id?: any | null | undefined;
+        name?: string | null | undefined;
+        polygon?: any | null | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type UpdateTerritoryMutationVariables = Exact<{
+  input?: InputMaybe<TerritoryDtoInput>;
+}>;
+
+export type UpdateTerritoryMutation = {
+  __typename?: "Mutation";
+  updateTerritory?:
+    | {
+        __typename?: "TerritoryDto";
+        id?: any | null | undefined;
+        name?: string | null | undefined;
+        polygon?: any | null | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type New_TerritoryDtoFragment = {
+  __typename?: "TerritoryDto";
+  id?: any | null | undefined;
+};
+
+export type ListTerritoriesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ListTerritoriesQuery = {
+  __typename?: "Query";
+  listTerritories?:
+    | Array<
+        | {
+            __typename?: "TerritoryDto";
+            id?: any | null | undefined;
+            name?: string | null | undefined;
+            polygon?: any | null | undefined;
+          }
+        | null
+        | undefined
+      >
+    | null
+    | undefined;
+};
+
+export type DeleteTerritoryMutationVariables = Exact<{
+  id: Scalars["Long"];
+}>;
+
+export type DeleteTerritoryMutation = {
+  __typename?: "Mutation";
+  deleteTerritory: boolean;
+};
+
+export const New_CustomerOrderDtoFragmentDoc = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "New_CustomerOrderDto" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "CustomerOrderDto" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "Field", name: { kind: "Name", value: "id" } }],
+      },
+    },
+  ],
+} as unknown as DocumentNode<New_CustomerOrderDtoFragment, unknown>;
+export const New_SalespersonDtoFragmentDoc = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "New_SalespersonDto" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "SalespersonDto" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "Field", name: { kind: "Name", value: "id" } }],
+      },
+    },
+  ],
+} as unknown as DocumentNode<New_SalespersonDtoFragment, unknown>;
+export const New_TerritoryDtoFragmentDoc = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "New_TerritoryDto" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "TerritoryDto" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "Field", name: { kind: "Name", value: "id" } }],
+      },
+    },
+  ],
+} as unknown as DocumentNode<New_TerritoryDtoFragment, unknown>;
 export const SendEmailAsyncDocument = {
   kind: "Document",
   definitions: [
@@ -848,6 +1133,193 @@ export const SendEmailAsyncDocument = {
   SendEmailAsyncMutation,
   SendEmailAsyncMutationVariables
 >;
+export const FindOrderDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "findOrder" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Long" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "findOrder" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "amount" } },
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "location" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "salesperson" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "location" },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<FindOrderQuery, FindOrderQueryVariables>;
+export const UpdateOrderDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "updateOrder" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "input" },
+          },
+          type: {
+            kind: "NamedType",
+            name: { kind: "Name", value: "CustomerOrderDtoInput" },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "updateOrder" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "input" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "input" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "amount" } },
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "location" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "salesperson" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<UpdateOrderMutation, UpdateOrderMutationVariables>;
+export const ListOrdersDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "listOrders" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "listOrders" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "amount" } },
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "location" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ListOrdersQuery, ListOrdersQueryVariables>;
+export const DeleteOrderDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "deleteOrder" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Long" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "deleteOrder" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<DeleteOrderMutation, DeleteOrderMutationVariables>;
 export const GetStringParameterDocument = {
   kind: "Document",
   definitions: [
@@ -954,4 +1426,384 @@ export const GetEntityParameterDocument = {
 } as unknown as DocumentNode<
   GetEntityParameterQuery,
   GetEntityParameterQueryVariables
+>;
+export const FindSalespersonDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "findSalesperson" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Long" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "findSalesperson" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "location" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "phone" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "territory" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                      { kind: "Field", name: { kind: "Name", value: "name" } },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "polygon" },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  FindSalespersonQuery,
+  FindSalespersonQueryVariables
+>;
+export const UpdateSalespersonDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "updateSalesperson" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "input" },
+          },
+          type: {
+            kind: "NamedType",
+            name: { kind: "Name", value: "SalespersonDtoInput" },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "updateSalesperson" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "input" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "input" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "location" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "phone" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "territory" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                      { kind: "Field", name: { kind: "Name", value: "name" } },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "polygon" },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  UpdateSalespersonMutation,
+  UpdateSalespersonMutationVariables
+>;
+export const ListSalespeopleDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "listSalespeople" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "listSalespeople" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "location" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "phone" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  ListSalespeopleQuery,
+  ListSalespeopleQueryVariables
+>;
+export const DeleteSalespersonDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "deleteSalesperson" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Long" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "deleteSalesperson" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  DeleteSalespersonMutation,
+  DeleteSalespersonMutationVariables
+>;
+export const FindTerritoryDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "findTerritory" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Long" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "findTerritory" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "polygon" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<FindTerritoryQuery, FindTerritoryQueryVariables>;
+export const UpdateTerritoryDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "updateTerritory" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "input" },
+          },
+          type: {
+            kind: "NamedType",
+            name: { kind: "Name", value: "TerritoryDtoInput" },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "updateTerritory" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "input" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "input" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "polygon" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  UpdateTerritoryMutation,
+  UpdateTerritoryMutationVariables
+>;
+export const ListTerritoriesDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "listTerritories" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "listTerritories" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "polygon" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  ListTerritoriesQuery,
+  ListTerritoriesQueryVariables
+>;
+export const DeleteTerritoryDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "deleteTerritory" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "Long" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "deleteTerritory" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  DeleteTerritoryMutation,
+  DeleteTerritoryMutationVariables
 >;
