@@ -114,7 +114,9 @@ ReactDOM.render(
                 <ScreenContext.Provider value={screens}>
                     <HashRouter>
                         <HotkeyContext.Provider value={hotkeys}>
-                            <AuditProvider>
+                            <AuditProvider
+                                includeScreens={["salesperson-list", "order-list", "email-history"]}
+                            >
                                 <DevSupport
                                     ComponentPreviews={<ComponentPreviews/>}
                                     useInitialHook={useInitial}

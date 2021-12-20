@@ -30,6 +30,7 @@ import {
 import SalespersonDetails from "./SalespersonDetails";
 import {TileLayer} from "react-leaflet";
 import {GeoMap, VectorLayer} from "amplicode-maps";
+import {useActionAudit} from "amplicode-audit";
 
 const ROUTE = "salesperson-list";
 
@@ -55,6 +56,7 @@ const SalespersonList = observer(({onSelect}: EntityListScreenProps) => {
     const intl = useIntl();
     const match = useRouteMatch<{ entityId: string }>(`/${ROUTE}/:entityId`);
     const history = useHistory();
+    const audit = useActionAudit();
 
     const {loading, error, data} = useQuery(LIST_SALESPEOPLE);
 
@@ -118,7 +120,9 @@ const SalespersonList = observer(({onSelect}: EntityListScreenProps) => {
                         title='intl.formatMessage({id: "common.create"})'
                         type="primary"
                         icon={<PlusOutlined/>}
-                        onClick={() => openEditor()}
+                        onClick={() => {openEditor();
+                            audit({componentId:"create-salesperson-btn", componentType:"button"});
+                        }}
                     >
             <span>
               <FormattedMessage id="common.create"/>
