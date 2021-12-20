@@ -28,6 +28,6 @@ services:
       RDS_PORT: 5432
       SPRING_PROFILES_ACTIVE: docker
     ports:
-      - "8085:8080"
+      - "8086:8080"
     networks:
       - amplicode-addons-demo-r2-net
