@@ -10,9 +10,9 @@ services:
     image: postgres:12
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: ${DB1_PASSWORD}
-      POSTGRES_USER: ${DB1_USERNAME}
-      POSTGRES_DB: ${DB1_NAME}
+      POSTGRES_PASSWORD: ${GRANT2_PASSWORD}
+      POSTGRES_USER: ${GRANT2_USERNAME}
+      POSTGRES_DB: ${GRANT2_NAME}
     networks:
       - amplicode-addons-demo-r2-net
 
@@ -22,9 +22,9 @@ services:
     restart: unless-stopped
     environment:
       RDS_HOSTNAME: amplicode-addons-demo-r2-postgres-12
-      RDS_PASSWORD: ${DB1_PASSWORD}
-      RDS_USERNAME: ${DB1_USERNAME}
-      RDS_DB_NAME: ${DB1_NAME}
+      RDS_PASSWORD: ${GRANT2_PASSWORD}
+      RDS_USERNAME: ${GRANT2_USERNAME}
+      RDS_DB_NAME: ${GRANT2_NAME}
       RDS_PORT: 5432
       SPRING_PROFILES_ACTIVE: docker
     ports:
