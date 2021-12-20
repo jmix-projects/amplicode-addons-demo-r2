@@ -20,7 +20,7 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom "com.amplicode.bom:amplicode-bom:0.1.1-SNAPSHOT"
+        mavenBom 'com.amplicode.bom:amplicode-bom:0.1.1-SNAPSHOT'
     }
 }
 
@@ -56,4 +56,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+bootBuildImage {
+    if (rootProject.hasProperty('dockerTag')) {
+        imageName = rootProject['dockerTag']
+    } else {
+        if (rootProject.hasProperty("includeFrontend")) {
+            imageName = 'amplicode-addons-demo-r2:full'
+        } else {
+            imageName = 'amplicode-addons-demo-r2:backend'
+        }
+    }
 }

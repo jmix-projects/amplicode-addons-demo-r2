@@ -1,12 +1,9 @@
 package com.amplicode.addonsdemo.config;
 
-import com.amplicode.addonsdemo.AmplicodeAddonsDemoProperties;
-import com.amplicode.emailtemplates.security.EmailTemplatesAuthorities;
+import com.amplicode.addonsdemo.AppProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -14,8 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,18 +27,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public static final String NOOP_PREFIX = "{noop}";
 
     @Autowired
-    private AmplicodeAddonsDemoProperties properties;
+    private AppProperties properties;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser(User.withUsername(properties.getAdmin().getUsername())
-                        .password(getPassword(properties.getAdmin().getPassword()))
+                .withUser(User.withUsername(properties.getUsers().getAdmin().getUsername())
+                        .password(getPassword(properties.getUsers().getAdmin().getPassword()))
                         .authorities("ROLE_ADMIN", REPORT_ADMIN,
                                 PERSISTENT_PARAMETERS_ADMIN,
                                 EMAIL_ADMIN, PERSISTENT_MESSAGES_ADMIN, EMAIL_TEMPLATES_ADMIN).build())
-                .withUser(User.withUsername(properties.getUser().getUsername())
-                        .password(getPassword(properties.getUser().getPassword()))
+                .withUser(User.withUsername(properties.getUsers().getUser().getUsername())
+                        .password(getPassword(properties.getUsers().getUser().getPassword()))
                         .authorities("ROLE_USER", REPORT_EXECUTOR)
                         .build());
     }
