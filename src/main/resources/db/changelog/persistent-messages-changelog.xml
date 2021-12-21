@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet id="1637054293048-1" author="Amplicode Addons">
+        <insert tableName="pmsg_message" dbms="all">
+            <column name="code" value="io.jmix.test.message1"/>
+            <column name="values_" value="{'code':'io.jmix.test.message1','ru':'Test message 1 ru','en':'Test message 1','fr':'Test message 1 fr'}"/>
+        </insert>
+        <insert tableName="pmsg_message" dbms="all">
+            <column name="code" value="io.jmix.test.message2"/>
+            <column name="values_" value="{'code':'io.jmix.test.message2','ru':'Test message 2 ru','en':'Test message 2','fr':'Test message 2 fr'}"/>
+        </insert>
+        <insert tableName="pmsg_message" dbms="all">
+            <column name="code" value="io.jmix.test.message3"/>
+            <column name="values_" value="{'code':'io.jmix.test.message3','en':'Test message 3'}"/>
+        </insert>
+        <insert tableName="pmsg_message" dbms="all">
+            <column name="code" value="io.jmix.test.message4"/>
+            <column name="values_" value="{'code':'io.jmix.test.message4','ru':'Test message 4 ru','en':'Test message 4','fr':'Test message 4 fr'}"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

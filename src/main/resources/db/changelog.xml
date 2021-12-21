@@ -15,5 +15,6 @@
 
     <include file="db/changelog/maps-changelog.xml"/>
     <include file="db/changelog/persistent-parameters-changelog.xml"/>
+    <include file="db/changelog/persistent-messages-changelog.xml"/>
     <include file="db/changelog/audit-entitylog-changelog.xml"/>
 </databaseChangeLog>
