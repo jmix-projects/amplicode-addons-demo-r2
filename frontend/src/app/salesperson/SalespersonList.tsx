@@ -1,19 +1,7 @@
 import {observer} from "mobx-react";
-import {
-    gql,
-    useQuery,
-    useMutation,
-    ApolloCache,
-    Reference
-} from "@apollo/client";
-import {
-    CheckOutlined,
-    CloseOutlined,
-    DeleteOutlined,
-    EditOutlined,
-    PlusOutlined
-} from "@ant-design/icons";
-import {Button, Card, Modal, Spin, Empty, Result, Row} from "antd";
+import {ApolloCache, gql, Reference, useMutation, useQuery} from "@apollo/client";
+import {CheckOutlined, CloseOutlined, DeleteOutlined, EditOutlined, PlusOutlined} from "@ant-design/icons";
+import {Button, Card, Empty, Modal, Result, Space, Spin} from "antd";
 import {FormattedMessage, IntlShape, useIntl} from "react-intl";
 import {MutationFunctionOptions} from "@apollo/client/react/types/types";
 import {FetchResult} from "@apollo/client/link/core";
@@ -31,6 +19,7 @@ import SalespersonDetails from "./SalespersonDetails";
 import {TileLayer} from "react-leaflet";
 import {GeoMap, VectorLayer} from "amplicode-maps";
 import {useActionAudit} from "amplicode-audit";
+import {ShowReportsButton} from "amplicode-reports";
 
 const ROUTE = "salesperson-list";
 
@@ -113,22 +102,24 @@ const SalespersonList = observer(({onSelect}: EntityListScreenProps) => {
     return (
         <div className="narrow-layout">
             {!isSelectMode && (
-                <div style={{marginBottom: "12px"}}>
+                <Space style={{marginBottom: "12px"}}>
                     <Button
                         htmlType="button"
                         key="create"
-                        title='intl.formatMessage({id: "common.create"})'
+                        title={intl.formatMessage({id: "common.create"})}
                         type="primary"
                         icon={<PlusOutlined/>}
-                        onClick={() => {openEditor();
-                            audit({componentId:"create-salesperson-btn", componentType:"button"});
+                        onClick={() => {
+                            openEditor();
+                            audit({componentId: "create-salesperson-btn", componentType: "button"});
                         }}
                     >
             <span>
               <FormattedMessage id="common.create"/>
             </span>
                     </Button>
-                </div>
+                    <ShowReportsButton screenId="salesperson-list"/>
+                </Space>
             )}
             {isSelectMode && (
                 <div style={{marginBottom: "12px"}}>
