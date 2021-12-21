@@ -10,6 +10,7 @@ import {EntityLookupField} from "@amplicode/react-antd";
 import TerritoryList from "../territory/TerritoryList";
 import {GeoMap, VectorLayer, GeoType} from "amplicode-maps";
 import {TileLayer} from "react-leaflet";
+import {useActionAudit} from "amplicode-audit";
 
 const FIND_SALESPERSON = gql`
     query findSalesperson($id: Long!) {
@@ -48,6 +49,7 @@ const SalespersonDetails = observer(({id}: EntityDetailsScreenProps) => {
     const intl = useIntl();
     const screens = useScreens();
     const history = useHistory();
+    const audit = useActionAudit();
 
     const [
         loadItem,
@@ -144,7 +146,9 @@ const SalespersonDetails = observer(({id}: EntityDetailsScreenProps) => {
                 form={form}
             >
                 <Form.Item name="name" label="Name" style={{marginBottom: "12px"}}>
-                    <Input/>
+                    <Input
+                        onFocus={() => audit({componentId:"salesperson-name-input", componentType:"field"})}
+                    />
                 </Form.Item>
 
                 <Form.Item name="phone" label="Phone" style={{marginBottom: "12px"}}>

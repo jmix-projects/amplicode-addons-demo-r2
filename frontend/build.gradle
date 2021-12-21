@@ -2,6 +2,8 @@ plugins {
     id "com.github.node-gradle.node" version "3.0.1"
 }
 
+def frontContext = System.getenv('PUBLIC_URL')?:'/front'
+
 task installGenerators(type: NpmTask) {
     workingDir = file('generation')
     args = ['install']
@@ -19,8 +21,9 @@ task buildFrontend(type: NpmTask, dependsOn: npmInstall) {
 
 task deployFrontend(type: Copy, dependsOn: buildFrontend) {
     from "build"
-    into "$rootDir/build/resources/main/static/front"
+    into "$rootDir/build/resources/main/static$frontContext"
 }
 
-// Uncomment the line below to build frontend along with the Spring Boot app
-//rootProject.classes.dependsOn(deployFrontend)
+if (rootProject.hasProperty("includeFrontend")) {
+    rootProject.classes.dependsOn(deployFrontend)
+}

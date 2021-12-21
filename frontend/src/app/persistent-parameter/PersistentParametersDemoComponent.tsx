@@ -1,7 +1,6 @@
 import {observer} from "mobx-react";
 import {gql, useQuery} from "@apollo/client";
 import {Button, Table, Typography} from "antd";
-import Title from "antd/es/typography/Title";
 
 const {Text} = Typography;
 
