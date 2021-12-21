@@ -27,6 +27,8 @@ services:
       RDS_DB_NAME: ${GRANT2_NAME}
       RDS_PORT: 5432
       SPRING_PROFILES_ACTIVE: docker
+      APP_USERS_ADMIN_USERNAME: ${JMIX_ADMIN}
+      APP_USERS_ADMIN_PASSWORD: ${JMIX_PASSWORD}
     ports:
       - "8086:8080"
     networks:

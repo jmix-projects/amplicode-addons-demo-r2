@@ -27,7 +27,7 @@ public class AppProperties {
     }
 
     public static class FrontendProperties {
-        private String publicUrl = "front";
+        private String publicUrl = "/";
 
         public String getPublicUrl() {
             return publicUrl;
