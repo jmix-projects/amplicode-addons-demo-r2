@@ -14,7 +14,7 @@ import "antd/dist/antd.min.css";
 import axios from "axios";
 import { HashRouter } from "react-router-dom";
 import { onError } from "@apollo/client/link/error";
-import { createIntl, IntlProvider } from "react-intl";
+import { createIntl } from "react-intl";
 import { GRAPHQL_URI, REQUEST_SAME_ORIGIN } from "./config";
 import {
   HotkeyContext,
@@ -31,6 +31,7 @@ import { securityStore } from "./security-store";
 import { notification } from "antd";
 import "./i18n/i18nInit";
 import "./addons";
+import {PersistentIntlProvider} from 'amplicode-persistentmessages';
 
 axios.interceptors.response.use(response => {
   if (response.status === 401) {
@@ -109,7 +110,7 @@ const hotkeys = new HotkeyStore(defaultHotkeyConfigs);
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <IntlProvider locale="en" messages={localesStore.messagesMapping["en"]}>
+      <PersistentIntlProvider locale="en" >
         <ScreenContext.Provider value={screens}>
           <HashRouter>
             <HotkeyContext.Provider value={hotkeys}>
@@ -122,7 +123,7 @@ ReactDOM.render(
             </HotkeyContext.Provider>
           </HashRouter>
         </ScreenContext.Provider>
-      </IntlProvider>
+      </PersistentIntlProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
