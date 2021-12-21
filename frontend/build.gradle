@@ -2,7 +2,7 @@ plugins {
     id "com.github.node-gradle.node" version "3.0.1"
 }
 
-def frontContext = System.getenv('PUBLIC_URL')?:'/front'
+def frontContext = System.getenv('PUBLIC_URL')?:'/'
 
 task installGenerators(type: NpmTask) {
     workingDir = file('generation')
