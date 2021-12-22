@@ -26,8 +26,7 @@ const
 
     const goToParentScreen = useCallback(() => {
         history.push(".");
-        screens.closeActiveBreadcrumb();
-    }, [screens, history]);
+    }, [history]);
 
     const handleSubmit = useCallback(values => {
         executeUpsertMutation({
