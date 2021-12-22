@@ -29,7 +29,6 @@ export const Login = observer(() => {
         case 200:
           break;
         case 401:
-          console.log("A")
           notification.error({
             message: intl.formatMessage({ id: "auth.login.unauthorized" })
           });
