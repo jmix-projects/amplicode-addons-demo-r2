@@ -51,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
                 .successHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK))
+                .failureHandler((request, response, exception) -> response.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
                 .permitAll()
                 .and()
                 .exceptionHandling()
