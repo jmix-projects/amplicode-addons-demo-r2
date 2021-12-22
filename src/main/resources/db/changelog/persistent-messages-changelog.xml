@@ -7,19 +7,36 @@
     <changeSet id="1637054293048-1" author="Amplicode Addons">
         <insert tableName="pmsg_message" dbms="all">
             <column name="code" value="io.jmix.test.message1"/>
-            <column name="values_" value="{'code':'io.jmix.test.message1','ru':'Test message 1 ru','en':'Test message 1','fr':'Test message 1 fr'}"/>
+            <column name="values_">
+                <![CDATA[
+                  {"ru":"Test message 1 ru","en":"Test message 1","fr":"Test message 1 fr"}
+                ]]>
+            </column>
         </insert>
         <insert tableName="pmsg_message" dbms="all">
             <column name="code" value="io.jmix.test.message2"/>
-            <column name="values_" value="{'code':'io.jmix.test.message2','ru':'Test message 2 ru','en':'Test message 2','fr':'Test message 2 fr'}"/>
+            <column name="values_">
+                <![CDATA[
+                  {"ru":"Test message 2 ru","en":"Test message 2","fr":"Test message 2 fr"}
+                ]]>
+            </column>
         </insert>
         <insert tableName="pmsg_message" dbms="all">
             <column name="code" value="io.jmix.test.message3"/>
-            <column name="values_" value="{'code':'io.jmix.test.message3','en':'Test message 3'}"/>
+            <column name="values_">
+                <![CDATA[
+                  {"en":"Test message 3"}
+                ]]>
+            </column>
+
         </insert>
         <insert tableName="pmsg_message" dbms="all">
             <column name="code" value="io.jmix.test.message4"/>
-            <column name="values_" value="{'code':'io.jmix.test.message4','ru':'Test message 4 ru','en':'Test message 4','fr':'Test message 4 fr'}"/>
+            <column name="values_">
+                <![CDATA[
+                   {"ru":"Test message 4 ru","en":"Test message 4","fr":"Test message 4 fr"}
+                 ]]>
+            </column>
         </insert>
     </changeSet>
 </databaseChangeLog>
