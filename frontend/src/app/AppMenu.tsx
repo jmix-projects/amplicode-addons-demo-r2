@@ -47,7 +47,7 @@ export const AppMenu = observer(() => {
     const activeItem = getScreenKey(location.pathname);
 
     return (
-        <Menu onClick={handleClick} selectedKeys={activeItem ? [activeItem] : []}>
+        <Menu mode="inline" onClick={handleClick} selectedKeys={activeItem ? [activeItem] : []}>
             <Menu.Item icon={<HomeOutlined/>} title={getCaption("home")} key="home">
                 {getCaption("home")}
             </Menu.Item>

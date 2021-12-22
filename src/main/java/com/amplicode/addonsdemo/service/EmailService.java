@@ -6,6 +6,7 @@ import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLMutation;
 import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,7 @@ public class EmailService {
     private Emailer emailer;
 
     @GraphQLMutation(name = "sendEmailAsync")
+    @PreAuthorize("isAuthenticated()")
     @Transactional
     public void sendEmailAsync(@GraphQLArgument(name = "input") SendEmailDto input) {
         String att1 = "<html><body><h1>Attachment</h1></body></html>";

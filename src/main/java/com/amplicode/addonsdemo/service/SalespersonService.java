@@ -11,6 +11,7 @@ import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,12 +30,14 @@ public class SalespersonService {
     }
 
     @GraphQLQuery(name = "countSalespeople")
+    @PreAuthorize("isAuthenticated()")
     @Transactional
     public long count() {
         return crudRepository.count();
     }
 
     @GraphQLMutation(name = "deleteSalesperson")
+    @PreAuthorize("isAuthenticated()")
     @Transactional
     public void delete(@GraphQLNonNull Long id) {
         Salesperson entity = crudRepository.findById(id)
@@ -44,6 +47,7 @@ public class SalespersonService {
     }
 
     @GraphQLQuery(name = "listSalespeople")
+    @PreAuthorize("isAuthenticated()")
     @Transactional
     public List<SalespersonDto> findAll() {
         return crudRepository.findAll().stream()
@@ -52,6 +56,7 @@ public class SalespersonService {
     }
 
     @GraphQLQuery(name = "findSalesperson")
+    @PreAuthorize("isAuthenticated()")
     @Transactional
     public SalespersonDto findById(@GraphQLNonNull Long id) {
         return crudRepository.findById(id)
@@ -60,6 +65,7 @@ public class SalespersonService {
     }
 
     @GraphQLMutation(name = "updateSalesperson")
+    @PreAuthorize("isAuthenticated()")
     @Transactional
     public SalespersonDto update(SalespersonDto input) {
         if (input.getId() != null) {
