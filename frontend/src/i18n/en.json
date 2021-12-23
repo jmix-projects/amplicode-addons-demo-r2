@@ -23,6 +23,7 @@
   "EntityDetailsScreen.savedSuccessfully": "Saved successfully",
   "EntityDetailsScreen.validationError": "Validation Error. Please check the data you entered.",
   "EntityLookupField.selectEntityInstance": "Select entity instance",
+  "OrderDetails.useCurrentLocation": "Use current location",
 
   "screen.home": "Home",
 

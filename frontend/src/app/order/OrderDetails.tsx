@@ -10,6 +10,8 @@ import {EntityLookupField} from "@amplicode/react-antd";
 import {GeoMap, VectorLayer, GeoType} from "amplicode-maps";
 import {TileLayer} from "react-leaflet";
 import SalespersonList from "../salesperson/SalespersonList";
+import {CompassOutlined} from "@ant-design/icons";
+import {Map} from "leaflet"
 
 const FIND_ORDER = gql`
   query findOrder($id: Long!) {
@@ -43,6 +45,7 @@ const OrderDetails = observer(({ id }: EntityDetailsScreenProps) => {
   const intl = useIntl();
   const screens = useScreens();
   const history = useHistory();
+  const [map, setMap] = useState<Map|undefined>();
 
   const [
     loadItem,
@@ -63,6 +66,20 @@ const OrderDetails = observer(({ id }: EntityDetailsScreenProps) => {
     history.push("."); // Remove entity id part from url
     screens.closeActiveBreadcrumb();
   }, [screens, history]);
+
+  useEffect(() => {
+    if (map!=null) {
+      map.on('locationfound', event => {
+        const point = "POINT(" + event.latlng.lng + " " + event.latlng.lat + ")";
+        form.setFieldsValue({'location': point as string});
+        map.flyTo(event.latlng);
+      });
+    }
+  }, [form, map])
+
+  const locate = useCallback(() => {
+    map?.locate()
+  }, [form, map]);
 
   const handleSubmit = useCallback(
     values => {
@@ -151,14 +168,21 @@ const OrderDetails = observer(({ id }: EntityDetailsScreenProps) => {
           label="Location"
           style={{ marginBottom: "12px" }}
         >
-          <GeoMap centerX={50.2004} centerY={53.2261} zoom={11}>
+          <GeoMap centerX={50.2004} centerY={53.2261} zoom={11} whenCreated={setMap}>
             <TileLayer id='tileLayer' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
             <VectorLayer id='salespersonLayer' items={Array.of(salespersonItem)} propertyName={'location'}/>
-            <VectorLayer id='orderLayer' editable={true} geometryType={GeoType.Point}/>
+            <VectorLayer id='orderLayer' geometryType={GeoType.Point} editable/>
           </GeoMap>
 
         </Form.Item>
+
+        <Button htmlType="button" onClick={locate}
+                style={{marginBottom: "12px"}} icon={<CompassOutlined />}>
+          <span>
+            <FormattedMessage id="OrderDetails.useCurrentLocation"/>
+          </span>
+        </Button>
 
         <Form.Item
           name="salesperson"

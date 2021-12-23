@@ -173,7 +173,8 @@ const SalespersonDetails = observer(({id}: EntityDetailsScreenProps) => {
                 </Form.Item>
 
                 <Form.Item
-                    name="location">
+                    name="location"
+                    label="Location">
                     <GeoMap centerX={50.2004} centerY={53.2261} zoom={11}>
                         <TileLayer id='tileLayer' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
