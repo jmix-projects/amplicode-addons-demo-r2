@@ -14,77 +14,81 @@ const SEND__EMAIL_ASYNC = gql`
 
 const
     SendEmailComponent = () => {
-    const [form] = useForm();
-    const intl = useIntl();
-    const screens = useScreens();
-    const history = useHistory();
-    const [executeUpsertMutation, {loading: upsertInProcess}] = useMutation(
-        SEND__EMAIL_ASYNC
-    );
+        const [form] = useForm();
+        const intl = useIntl();
+        const screens = useScreens();
+        const history = useHistory();
+        const [executeUpsertMutation, {loading: upsertInProcess}] = useMutation(
+            SEND__EMAIL_ASYNC
+        );
 
-    const [formError, setFormError] = useState<string | undefined>();
+        const [formError, setFormError] = useState<string | undefined>();
 
-    const goToParentScreen = useCallback(() => {
-        history.push(".");
-    }, [history]);
-
-    const handleSubmit = useCallback(values => {
-        executeUpsertMutation({
-            variables: {
-                input: formValuesToData(values)
+        const goToParentScreen = useCallback(() => {
+            history.push(".");
+            const activeTabKey = screens.activeTab?.key;
+            if (activeTabKey) {
+                screens.closeTab(activeTabKey);
             }
-        })
-            .then(({errors, data}: FetchResult) => {
-                if (errors == null || errors.length === 0) {
-                    notification.success({message: "Email is added to the queue for sending"});
-                    goToParentScreen();
-                    return;
+        }, [history, screens]);
+
+        const handleSubmit = useCallback(values => {
+            executeUpsertMutation({
+                variables: {
+                    input: formValuesToData(values)
                 }
-                setFormError(errors.join("\n"));
-                console.error(errors);
-                message.error(intl.formatMessage({id: "common.requestFailed"}));
             })
-            .catch((e: Error | ApolloError) => {
-                setFormError(e.message);
-                console.error(e);
-                message.error(intl.formatMessage({id: "common.requestFailed"}));
-            });
-    }, [executeUpsertMutation, intl, goToParentScreen]);
+                .then(({errors, data}: FetchResult) => {
+                    if (errors == null || errors.length === 0) {
+                        notification.success({message: "Email is added to the queue for sending"});
+                        goToParentScreen();
+                        return;
+                    }
+                    setFormError(errors.join("\n"));
+                    console.error(errors);
+                    message.error(intl.formatMessage({id: "common.requestFailed"}));
+                })
+                .catch((e: Error | ApolloError) => {
+                    setFormError(e.message);
+                    console.error(e);
+                    message.error(intl.formatMessage({id: "common.requestFailed"}));
+                });
+        }, [executeUpsertMutation, intl, goToParentScreen]);
 
-    return (
+        return (
 
-        <Form
-            form={form}
-            layout="vertical"
-            onFinish={handleSubmit}>
+            <Form
+                form={form}
+                layout="vertical"
+                onFinish={handleSubmit}>
 
-            <Form.Item
-                label="Address"
-                name="address">
-                <Input/>
-            </Form.Item>
-            {formError && (
-                <Alert
-                    message={formError}
-                    type="error"
-                    style={{marginBottom: "18px"}}/>
-            )}
-            <Form.Item style={{textAlign: "center"}}>
-                <Button htmlType="button" onClick={goToParentScreen}>
-                    <FormattedMessage id="common.cancel"/>
-                </Button>
-                <Button
-                    type="primary"
-                    htmlType="submit"
-                    loading={upsertInProcess}
-                    style={{marginLeft: "8px"}}>
-                    Send
-                </Button>
-            </Form.Item>
-        </Form>
+                <Form.Item
+                    label="Address"
+                    name="address">
+                    <Input/>
+                </Form.Item>
+                {formError && (
+                    <Alert
+                        message={formError}
+                        type="error"
+                        style={{marginBottom: "18px"}}/>
+                )}
+                <Form.Item style={{textAlign: "center"}}>
+                    <Button htmlType="button" onClick={goToParentScreen}>
+                        <FormattedMessage id="common.cancel"/>
+                    </Button>
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        loading={upsertInProcess}
+                        style={{marginLeft: "8px"}}>
+                        Send
+                    </Button>
+                </Form.Item>
+            </Form>
 
-    )
-}
+        )
+    }
 
 function formValuesToData(values: any): any {
     return {
