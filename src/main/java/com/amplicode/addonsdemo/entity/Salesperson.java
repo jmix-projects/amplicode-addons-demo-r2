@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Audited
 @Entity
@@ -23,6 +24,7 @@ public class Salesperson {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotBlank
     @Column(name = "name", nullable = false)
     private String name;
 
