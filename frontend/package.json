@@ -19,7 +19,7 @@
     "@types/react-router-dom": "^5.1.9",
     "amplicode-audit": "^0.1.1-snapshot.3",
     "amplicode-dataimport": "^0.1.1-snapshot.4",
-    "amplicode-emailtemplates": "^0.1.1-snapshot.4",
+    "amplicode-emailtemplates": "^0.1.1-snapshot.5",
     "amplicode-mail": "^0.1.1-snapshot.2",
     "amplicode-maps": "^0.1.1-snapshot.3",
     "amplicode-persistentmessages": "^0.1.1-snapshot.4",
