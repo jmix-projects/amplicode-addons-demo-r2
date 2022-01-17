@@ -17,6 +17,7 @@
   "auth.login.unauthorized": "Login does not exist or incorrect password",
   "auth.login.unknownError": "Login failed",
   "auth.logout.confirm": "Are you sure you want to logout?",
+  "auth.logout.label": "Logout",
   "auth.logout.unknownError": "Logout failed",
 
   "EntityListScreen.deleteConfirmation": "Are you sure you want to delete this record?",

@@ -51,7 +51,9 @@ export const AppHeader = observer(() => {
           type="text"
           icon={<LogoutOutlined />}
           onClick={showLogoutConfirm}
-        />
+        >
+          {intl.formatMessage({id: "auth.logout.label"})}
+        </Button>
       </Space>
     </div>
   );
