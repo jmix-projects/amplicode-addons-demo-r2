@@ -26,6 +26,7 @@ import {
 } from "antd/es";
 import Checkbox from "antd/es/checkbox/Checkbox";
 import { Group } from "antd/es/radio";
+import { FormattedMessage } from "react-intl";
 
 const palette = () => (
   <Palette>
@@ -260,6 +261,13 @@ const palette = () => (
               <Footer>Footer</Footer>
             </Layout>
           </Layout>
+        </Variant>
+      </Component>
+    </Category>
+    <Category name="Localized Text">
+      <Component name="FormattedMessage">
+        <Variant>
+          <FormattedMessage />
         </Variant>
       </Component>
     </Category>
